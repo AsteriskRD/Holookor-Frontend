@@ -1,9 +1,22 @@
-import Image from "next/image";
+import Dashboard from '@/components/Dashboard';
+import { mockStore, mockQuery } from '@/data/dashboardMockData';
 
+/**
+ * Home page - Dashboard
+ * TODO: API Integration - Replace mock data with server-side data fetching or client-side hooks
+ */
 export default function Home() {
-    return (
-        <>
-            <main>Holookor</main>
-        </>
-    );
+  // Combine all mock data for the dashboard
+  const dashboardData = {
+    user: mockStore.user,
+    notifications: mockStore.notifications,
+    dashboardStats: mockQuery.dashboardStats,
+    upcomingSession: mockQuery.upcomingSession,
+    todaySessions: mockQuery.todaySessions,
+    weeklyPerformance: mockQuery.weeklyPerformance,
+    aiRecommendations: mockQuery.aiRecommendations,
+    dailyStreak: mockQuery.dailyStreak,
+  };
+  
+  return <Dashboard data={dashboardData} />;
 }
