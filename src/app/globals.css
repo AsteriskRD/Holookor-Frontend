@@ -1,7 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 /* LIGHT THEME VARIABLES      */
 
@@ -104,7 +104,6 @@
 
 
 /*  TAILWIND THEME VARIABLES   */
-
 @theme inline {
   --font-sans: "Geist", "Geist Fallback";
   --font-mono: "Geist Mono", "Geist Mono Fallback";
@@ -159,7 +158,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/*  BASE STYLES                */
+/*  BASE STYLES  */
 
 @layer base {
   * {
