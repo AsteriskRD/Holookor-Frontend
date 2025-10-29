@@ -73,14 +73,18 @@ export default function Dashboard({ data }) {
               onJoinClass={handleJoinClass}
             />
           </div>
-          <div className="lg:col-span-4 space-y-6">
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-[var(--color-foreground)]">
-                Quick Actions
-              </h3>
-              <QuickActionsGrid />
+          <div className="lg:col-span-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <h3 className="text-lg font-semibold mb-4 text-[var(--color-foreground)]">
+                  Quick Actions
+                </h3>
+                <QuickActionsGrid />
+              </div>
+              <div>
+                <DailyStreakTracker streak={dailyStreak} />
+              </div>
             </div>
-            <DailyStreakTracker streak={dailyStreak} />
           </div>
         </div>
 
