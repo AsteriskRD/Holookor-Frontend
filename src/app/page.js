@@ -1,13 +1,11 @@
-import Image from "next/image";
+import BookingLayout from "@/components/booking-layout"
 
-/**
- * Home page - Dashboard
- * TODO: API Integration - Replace mock data with server-side data fetching or client-side hooks
- */
+ /* Home page - Booking Screens (Sururat's Work)*/
+
 export default function Home() {
-    return (
-        <>
-            <main>Holookor</main>
-        </>
-    );
+  return (
+    <div className="min-h-screen" style={{ backgroundColor: "#f3fff1" }}>
+      <BookingLayout />
+    </div>
+  )
 }

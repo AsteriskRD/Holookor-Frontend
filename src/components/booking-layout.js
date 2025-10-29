@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react"
 import { Search } from "lucide-react"
@@ -25,7 +25,7 @@ export default function BookingLayout() {
       ].filter(
         (item) =>
           item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          item.category.toLowerCase().includes(searchQuery.toLowerCase()),
+          item.category.toLowerCase().includes(searchQuery.toLowerCase())
       )
       setSearchResults(results)
     } else {
