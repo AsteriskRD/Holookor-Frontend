@@ -1,9 +1,14 @@
-import Image from "next/image";
+// import Image from "next/image";
+
+import BookingLayout from "@/components/booking-layout"
 
 export default function Home() {
-    return (
-        <>
-            <main>Holookor</main>
-        </>
-    );
+  return (
+    <div className="min-h-screen" style={{ backgroundColor: "#f3fff1" }}>
+      <BookingLayout />
+    </div>
+  )
 }
+
+
+
