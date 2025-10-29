@@ -1,10 +1,10 @@
 /**
  * Reusable Card component
  */
-export default function Card({ children, className = '', ...props }) {
+export default function Card({ children, className = "", ...props }) {
   return (
     <div
-      className={`bg-white rounded-xl sm:rounded-2xl border border-[var(--color-border)] shadow-sm ${className}`}
+      className={`bg-white rounded-xl border border-[#E5E5E5] shadow-sm hover:shadow-md transition-shadow ${className}`}
       {...props}
     >
       {children}

@@ -1,7 +1,7 @@
-import { Calendar } from 'lucide-react';
-import Card from '../ui/Card';
-import Button from '../ui/Button';
-import SessionListItem from './SessionListItem';
+import { Calendar } from "lucide-react";
+import Card from "../ui/Card";
+import Button from "../ui/Button";
+import SessionListItem from "./SessionListItem";
 
 /**
  * Sessions List component
@@ -11,26 +11,31 @@ import SessionListItem from './SessionListItem';
  */
 export default function SessionsList({ sessions, onJoinClass, onBookSession }) {
   return (
-    <Card className="p-5 sm:p-6 lg:p-7 hover:shadow-md transition-all duration-200">
-      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-5 sm:mb-6">
-        <div className="flex-1">
-          <h3 className="text-lg sm:text-xl font-bold mb-1.5 text-[var(--color-foreground)]">My Sessions</h3>
-          <p className="text-xs sm:text-sm text-[var(--color-muted-foreground)]">See all sessions booked by you</p>
+    <Card className="p-6">
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h3 className="text-lg font-semibold mb-1 text-[var(--color-foreground)]">
+            My Sessions
+          </h3>
+          <p className="text-sm text-[var(--color-muted-foreground)]">
+            See all sessions booked by you
+          </p>
         </div>
         <Button
           variant="outline"
-          size="sm"
           onClick={onBookSession}
-          icon={<Calendar className="w-4 h-4" />}
-          className="w-full sm:w-auto flex-shrink-0"
+          className="flex items-center gap-2"
         >
+          <Calendar className="w-4 h-4" />
           Book Session
         </Button>
       </div>
-      
+
       <div>
-        <h4 className="text-sm font-semibold text-[var(--color-muted-foreground)] mb-3 sm:mb-4 px-1">Today</h4>
-        <div className="space-y-2 sm:space-y-3">
+        <h4 className="text-sm font-medium text-[var(--color-muted-foreground)] mb-4">
+          Today
+        </h4>
+        <div className="space-y-3">
           {sessions.map((session) => (
             <SessionListItem
               key={session.id}

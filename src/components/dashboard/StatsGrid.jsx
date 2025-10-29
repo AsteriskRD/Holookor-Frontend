@@ -1,5 +1,5 @@
-import { Calendar, Clock, Trophy, Award } from 'lucide-react';
-import StatCard from './StatCard';
+import { Calendar, Clock, Trophy, Award } from "lucide-react";
+import StatCard from "./StatCard";
 
 /**
  * Statistics Grid component
@@ -7,7 +7,7 @@ import StatCard from './StatCard';
  */
 export default function StatsGrid({ stats }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 mb-6 sm:mb-8">
+    <div className="flex items-center justify-end gap-4">
       <StatCard
         icon={Calendar}
         label="Total Sessions"

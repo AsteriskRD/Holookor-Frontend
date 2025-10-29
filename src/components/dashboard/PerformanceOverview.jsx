@@ -14,7 +14,7 @@ export default function PerformanceOverview({ performances }) {
           <h3 className="text-base sm:text-lg font-bold mb-1.5 text-[var(--color-foreground)]">Performance Overview</h3>
           <p className="text-xs sm:text-sm text-[var(--color-muted-foreground)]">Track your progress across subjects</p>
         </div>
-        <button className="flex items-center gap-1.5 text-[var(--color-primary-600)] hover:text-[var(--color-primary-700)] text-xs sm:text-sm font-semibold hover:bg-[var(--color-primary-50)] px-3 py-1.5 rounded-lg transition-all duration-200 self-start">
+        <button className="flex items-center gap-1.5 text-[var(--color-primary-600)] hover:text-[var(--color-primary-700)] text-xs sm:text-sm font-semibold hover:bg-[var(--color-primary-50)] px-0.75rem py-0.375rem rounded-lg transition-all duration-200 self-start">
           <BarChart2 className="w-4 h-4" />
           View Analysis
         </button>

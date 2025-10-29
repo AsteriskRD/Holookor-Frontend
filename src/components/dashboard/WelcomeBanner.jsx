@@ -3,7 +3,7 @@
  */
 export default function WelcomeBanner({ userName }) {
   return (
-    <div className="mb-6 sm:mb-8 px-1">
+    <div className="px-1 py-2">
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 text-[var(--color-foreground)]">
         Welcome back, {userName}! 👋
       </h1>

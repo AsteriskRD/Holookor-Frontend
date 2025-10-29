@@ -20,9 +20,9 @@ export default function Button({
   };
   
   const sizes = {
-    sm: 'px-4 py-2 text-sm rounded-lg',
-    md: 'px-5 py-2.5 text-sm sm:text-base rounded-lg',
-    lg: 'px-6 py-3 text-base sm:text-lg rounded-xl',
+    sm: 'px-1rem py-0.5rem text-sm rounded-lg',
+    md: 'px-1.25rem py-0.625rem text-sm sm:text-base rounded-lg',
+    lg: 'px-1.5rem py-0.75rem text-base sm:text-lg rounded-xl',
   };
   
   return (

@@ -15,7 +15,7 @@ export default function AIRecommendationCard({ recommendations, onStartQuiz }) {
           <h3 className="text-base sm:text-lg font-bold mb-1.5 text-[var(--color-foreground)]">AI Recommendations</h3>
           <p className="text-xs sm:text-sm text-[var(--color-muted-foreground)]">Activities suggested based on your work</p>
         </div>
-        <button className="text-[var(--color-primary-600)] hover:text-[var(--color-primary-700)] text-xs sm:text-sm font-semibold hover:bg-[var(--color-primary-50)] px-3 py-1.5 rounded-lg transition-all duration-200 self-start">
+        <button className="text-[var(--color-primary-600)] hover:text-[var(--color-primary-700)] text-xs sm:text-sm font-semibold hover:bg-[var(--color-primary-50)] px-0.75rem py-0.375rem rounded-lg transition-all duration-200 self-start">
           See More
         </button>
       </div>
