@@ -17,6 +17,7 @@ export default function Button({
     secondary: 'bg-[var(--color-neutral-100)] text-[var(--color-foreground)] hover:bg-[var(--color-neutral-200)] active:bg-[var(--color-neutral-300)] focus:ring-[var(--color-neutral-400)]',
     outline: 'border-2 border-[var(--color-border)] bg-transparent hover:bg-[var(--color-neutral-50)] active:bg-[var(--color-neutral-100)] focus:ring-[var(--color-neutral-400)]',
     ghost: 'bg-transparent hover:bg-[var(--color-neutral-100)] active:bg-[var(--color-neutral-200)] focus:ring-[var(--color-neutral-400)]',
+    navButton: 'bg-[var(--color-primary-800)] text-white hover:bg-[var(--color-primary-700)] active:bg-[var(--color-primary-800)] focus:ring-[var(--color-primary-500)]'
   };
   
   const sizes = {

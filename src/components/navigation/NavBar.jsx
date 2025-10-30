@@ -12,7 +12,7 @@ import Badge from "../ui/Badge";
  * TODO: API Integration - Connect notification bell to real-time notification service
  * TODO: API Integration - Connect user dropdown to authentication/profile management
  */
-export default function NavBar({ user, notificationCount }) {
+export default function   NavBar({ user, notificationCount }) {
   const [activeTab, setActiveTab] = useState("Dashboard");
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -61,7 +61,7 @@ export default function NavBar({ user, notificationCount }) {
                     onClick={() => setActiveTab(item)}
                     className={`text-sm font-medium px-4 py-2  my-2  rounded transition-colors duration-150 ${
                       activeTab === item
-                        ? "bg-[var(--primary)] text-white shadow"
+                        ? "bg-[#0c5b29] text-white shadow"
                         : "text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
                     }`}
                   >
@@ -113,9 +113,9 @@ export default function NavBar({ user, notificationCount }) {
                   <button className="w-full px-4 py-2 text-left text-sm hover:bg-[var(--muted)] transition-colors duration-150">
                     Settings
                   </button>
-                  <div className="border-t border-[var(--border)] my-1"></div>
-                  <button className="w-full px-4 py-2 text-left text-sm hover:bg-[var(--muted)] transition-colors duration-150 text-[var(--accent)]">
-                    Logout
+                  <div className="border-t border-[var(--border)]  my-1"></div>
+                  <button className="w-full px-4 py-2 text-left text-white text-sm bg-[#FF0000] hover:bg-[#8B0000] transition-colors duration-150 text-[var(--accent)]">
+                    Log out
                   </button>
                 </div>
               )}
