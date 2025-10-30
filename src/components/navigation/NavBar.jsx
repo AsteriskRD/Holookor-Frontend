@@ -34,11 +34,10 @@ export default function NavBar({ user, notificationCount }) {
                 <button
                   key={item}
                   onClick={() => setActiveTab(item)}
-                  className={`text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ${
-                    activeTab === item
+                  className={`text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ${activeTab === item
                       ? "bg-[var(--primary)] text-white shadow"
                       : "text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
-                  }`}
+                    }`}
                 >
                   {item}
                 </button>
