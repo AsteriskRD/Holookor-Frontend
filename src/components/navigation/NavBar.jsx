@@ -28,47 +28,21 @@ export default function   NavBar({ user, notificationCount }) {
             <Logo />
           </div>
 
-          {/* Mobile hamburger + Centered Navigation (pill for md+) */}
-          <div className="flex-1 flex items-center justify-center">
-            {/* Hamburger visible on small screens */}
-            <button
-              aria-label="Toggle navigation"
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
-              className="md:hidden mr-2 p-2 rounded-md hover:bg-[var(--muted)] transition-colors duration-150"
-            >
-              <svg
-                className="w-6 h-6 text-[var(--foreground)]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-
-            {/* Desktop pill nav */}
-            <div className="hidden md:block">
-              <div className="bg-white rounded px-2 py-1 shadow-sm flex items-center gap-1">
-                {navItems.map((item) => (
-                  <button
-                    key={item}
-                    onClick={() => setActiveTab(item)}
-                    className={`text-sm font-medium px-4 py-2  my-2  rounded transition-colors duration-150 ${
-                      activeTab === item
-                        ? "bg-[#0c5b29] text-white shadow"
-                        : "text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
+          {/* Centered Navigation (pill) */}
+          <div className="flex-1 flex justify-center">
+            <div className="bg-white rounded-full px-2 py-1 shadow-sm flex items-center gap-1">
+              {navItems.map((item) => (
+                <button
+                  key={item}
+                  onClick={() => setActiveTab(item)}
+                  className={`text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ${activeTab === item
+                      ? "bg-[var(--primary)] text-white shadow"
+                      : "text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
                     }`}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
+                >
+                  {item}
+                </button>
+              ))}
             </div>
           </div>
 

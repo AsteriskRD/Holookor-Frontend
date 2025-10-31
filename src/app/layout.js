@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
@@ -6,13 +6,12 @@ export const metadata = {
     description: "Your personalized learning journey dashboard",
 };
 
+const inter = Inter();
+
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            </head>
-            <body className={`antialiased`}>{children}</body>
+            <body className={inter.className}>{children}</body>
         </html>
     );
 }
