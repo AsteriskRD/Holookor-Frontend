@@ -7,7 +7,7 @@ import Card from '../ui/Card';
  */
 export default function DailyStreakTracker({ streak }) {
   return (
-    <Card className="p-5 sm:p-6 hover:shadow-md transition-all duration-200">
+    <Card className="p-5  sm:p-6 hover:shadow-md transition-all duration-200">
       <h3 className="text-base sm:text-lg font-semibold mb-4 text-[var(--color-foreground)]">Daily Streak</h3>
       
       <div className="flex items-center gap-3 sm:gap-4 mb-5">
