@@ -53,10 +53,10 @@ export default function Dashboard({ data }) {
     <div className="min-h-screen ">
       <NavBar user={user} notificationCount={notifications.unreadCount} />
 
-      <main className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <main className="max-w-screen-xl mx-auto px-2 sm:px-3 lg:px-4 py-6">
         {/* Top header: welcome text on the left, stats on the right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          <div className="lg:col-span-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-6">
             <WelcomeBanner userName={user.name} />
           </div>
           <div className="lg:col-span-4 flex justify-end">
@@ -66,19 +66,17 @@ export default function Dashboard({ data }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-8">
-          <div className="lg:col-span-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mt-8">
+          <div className="lg:col-span-6">
             <UpcomingSessionCard
               session={upcomingSession}
               onJoinClass={handleJoinClass}
             />
           </div>
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-6">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-[var(--color-foreground)]">
-                  Quick Actions
-                </h3>
+                
                 <QuickActionsGrid />
               </div>
               <div>
@@ -88,15 +86,15 @@ export default function Dashboard({ data }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-8">
-          <div className="lg:col-span-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mt-8">
+          <div className="lg:col-span-6">
             <SessionsList
               sessions={todaySessions}
               onJoinClass={handleJoinClass}
               onBookSession={handleBookSession}
             />
           </div>
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-6 space-y-6">
             <PerformanceOverview performances={weeklyPerformance} />
             <AIRecommendationCard
               recommendations={aiRecommendations}
