@@ -32,7 +32,7 @@ export default function AIRecommendationCard({ recommendations, onStartQuiz }) {
               variant="primary"
               size="md"
               onClick={() => onStartQuiz(rec.id)}
-              className="w-full shadow-sm hover:shadow-md hover:bg-[#0c5b29] "
+              className="w-full shadow-sm hover:shadow-md hover:bg-[#0c5b29] py-2"
             >
               Start Quiz
             </Button>
