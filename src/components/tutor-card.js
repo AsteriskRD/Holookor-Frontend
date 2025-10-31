@@ -2,31 +2,38 @@ import { CheckCircle, Star } from "lucide-react"
 
 export default function TutorCard() {
   return (
-    <div className="p-6 rounded-lg mb-8 border" style={{ borderColor: "#e5e7ea", backgroundColor: "#ffffff" }}>
-      <div className="flex items-start gap-4">
-        {/* Avatar */}
+    <div 
+      className="p-4 sm:p-6 rounded-lg mb-4 sm:mb-8 border transition-shadow hover:shadow-md"
+      style={{ borderColor: "#e5e7ea", backgroundColor: "#ffffff" }}
+    >
+      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4">
+        {/* Avatar - Smaller on mobile, larger on desktop */}
         <div
-          className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0"
+          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center 
+                     text-white font-bold text-lg sm:text-xl flex-shrink-0"
           style={{ backgroundColor: "#394050" }}
         >
           DS
         </div>
 
-        {/* Info */}
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-2">
-            <h3 className="font-bold" style={{ color: "#0a0a0a" }}>
+        {/* Info - Center aligned on mobile, left aligned on desktop */}
+        <div className="flex-1 w-full text-center sm:text-left">
+          <div className="flex flex-col sm:flex-row items-center sm:items-center gap-2 mb-2">
+            <h3 className="text-base sm:text-lg font-bold" style={{ color: "#0a0a0a" }}>
               Dr. Sarah Johnson
             </h3>
-            <CheckCircle size={16} style={{ color: "#3da755" }} />
-            <span className="text-xs font-semibold" style={{ color: "#3da755" }}>
-              Verified
-            </span>
+            <div className="flex items-center gap-1">
+              <CheckCircle size={16} style={{ color: "#3da755" }} />
+              <span className="text-xs font-semibold" style={{ color: "#3da755" }}>
+                Verified
+              </span>
+            </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          {/* Tags and Rating - Stack on mobile, inline on desktop */}
+          <div className="flex flex-col sm:flex-row items-center gap-2">
             <span
-              className="text-xs font-semibold px-2 py-1 rounded"
+              className="text-xs font-semibold px-3 py-1.5 rounded-full w-fit"
               style={{ backgroundColor: "#0a0a0a", color: "#ffffff" }}
             >
               Mathematics
@@ -34,7 +41,10 @@ export default function TutorCard() {
             <div className="flex items-center gap-1">
               <Star size={16} style={{ color: "#fdc700", fill: "#fdc700" }} />
               <span className="text-sm font-semibold" style={{ color: "#0a0a0a" }}>
-                4.9 (156)
+                4.9
+              </span>
+              <span className="text-sm text-gray-500">
+                (156)
               </span>
             </div>
           </div>

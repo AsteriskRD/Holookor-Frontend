@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* LIGHT THEME VARIABLES      */
+/* LIGHT THEME VARIABLES  */
 
 :root {
   --background: #ffffff;
@@ -104,7 +105,7 @@
 
 
 /*  TAILWIND THEME VARIABLES   */
-@theme inline {
+:root {
   --font-sans: "Geist", "Geist Fallback";
   --font-mono: "Geist Mono", "Geist Mono Fallback";
 
@@ -162,9 +163,25 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--border);
+    /* outline: 1px solid var(--ring);
+    outline-offset: 2px; */
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { background-color: #ffffff; color: #1a202c; }
+
+  /* Slightly larger base font on larger screens, smaller on phones */
+  @media (max-width: 640px) {
+    html { font-size: 14px; }
+  }
+  @media (min-width: 641px) {
+    html { font-size: 16px; }
   }
 }

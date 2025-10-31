@@ -1,11 +1,12 @@
-"use client";
+"use client"
 
 import { useState } from "react"
 import { Search } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Button from "@/components/ui/Button"
 import TutorCard from "./tutor-card"
 import ScheduleTime from "./schedule-time"
 import SessionDetail from "./session-detail"
+import ConfirmBooking from "./confirm-booking"  
 
 export default function BookingLayout() {
   const [selectedTime, setSelectedTime] = useState("08:00")
@@ -14,6 +15,14 @@ export default function BookingLayout() {
   const [notes, setNotes] = useState("")
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
+
+  const [currentScreen, setCurrentScreen] = useState("booking")
+
+  const [selectedTimes, setSelectedTimes] = useState([])
+
+  const [frequency, setFrequency] = useState("Weekly")
+  const [startDate, setStartDate] = useState("")
+  const [endDate, setEndDate] = useState("")
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
@@ -25,7 +34,7 @@ export default function BookingLayout() {
       ].filter(
         (item) =>
           item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          item.category.toLowerCase().includes(searchQuery.toLowerCase())
+          item.category.toLowerCase().includes(searchQuery.toLowerCase()),
       )
       setSearchResults(results)
     } else {
@@ -43,14 +52,37 @@ export default function BookingLayout() {
     }
   }
 
+  const handleProceedToPayment = () => {
+    setCurrentScreen("confirm")
+  }
+
+  const handleBackToBooking = () => {
+    setCurrentScreen("booking")
+  }
+
+  if (currentScreen === "confirm") {
+    return (
+      <ConfirmBooking
+        onBack={handleBackToBooking}
+        sessionLength={sessionLength}
+        topic={topic}
+        notes={notes}
+        selectedTimes={selectedTimes}
+        frequency={frequency}
+        startDate={startDate}
+        endDate={endDate}
+      />
+    )
+  }
+
   return (
-    <div className="max-w-7xl mx-auto px-6 py-8">
-      <div className="grid grid-cols-3 gap-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
+     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
         {/* Left Column */}
         <div className="col-span-1">
           {/* Book Session Title */}
-          <div className="mb-8">
-            <h1 className="text-2xl font-bold mb-2" style={{ color: "#0a0a0a" }}>
+          <div className="mb-4 sm:mb-8">
+            <h1 className="text-xl sm:text-2xl font-bold mb-2" style={{ color: "#0a0a0a" }}>
               Book Session
             </h1>
             <p className="text-sm" style={{ color: "#6d717f" }}>
@@ -66,9 +98,9 @@ export default function BookingLayout() {
         </div>
 
         {/* Right Column */}
-        <div className="col-span-2">
+        <div className="col-span-1 md:col-span-2">
           {/* Search Bar */}
-          <div className="flex gap-3 mb-8">
+          <div className="flex flex-col sm:flex-row gap-3 mb-4 sm:mb-8">
             <div className="flex-1 relative">
               <Search
                 size={20}
@@ -81,7 +113,7 @@ export default function BookingLayout() {
                 value={searchQuery}
                 onChange={handleSearchInputChange}
                 onKeyPress={handleKeyPress}
-                className="w-full pl-10 pr-4 py-3 rounded-lg border"
+                className="w-full pl-10 pr-4 py-2 sm:py-3 rounded-lg border text-sm sm:text-base"
                 style={{
                   borderColor: "#e5e7ea",
                   backgroundColor: "#f9fafb",
@@ -89,15 +121,17 @@ export default function BookingLayout() {
                 }}
               />
             </div>
-            <Button onClick={handleSearch} style={{ backgroundColor: "#3da755", color: "#ffffff" }} className="px-6">
+            <Button 
+            onClick={handleSearch} 
+            style={{ backgroundColor: "#3da755", color: "#ffffff" }} className="w-full sm:w-auto px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold">
               Search
             </Button>
           </div>
 
           {/* Search Results */}
           {searchResults.length > 0 && (
-            <div className="mb-8 p-4 rounded-lg border" style={{ borderColor: "#e5e7ea", backgroundColor: "#f9fafb" }}>
-              <h3 className="font-bold mb-3" style={{ color: "#0a0a0a" }}>
+            <div className="mb-4 sm:mb-8 p-3 sm:p-4 rounded-lg border" style={{ borderColor: "#e5e7ea", backgroundColor: "#f9fafb" }}>
+              <h3 className="font-bold mb-2 sm:mb-3" style={{ color: "#0a0a0a" }}>
                 Search Results
               </h3>
               <div className="space-y-2">
@@ -107,7 +141,7 @@ export default function BookingLayout() {
                     className="p-2 rounded hover:bg-gray-100 cursor-pointer"
                     style={{ color: "#394050" }}
                   >
-                    <p className="font-semibold">{result.title}</p>
+                    <p className="font-semibold text-sm sm:text-base">{result.title}</p>
                     <p className="text-xs" style={{ color: "#6d717f" }}>
                       {result.category}
                     </p>
@@ -125,6 +159,7 @@ export default function BookingLayout() {
             setTopic={setTopic}
             notes={notes}
             setNotes={setNotes}
+            onProceedToPayment={handleProceedToPayment}
           />
         </div>
       </div>
