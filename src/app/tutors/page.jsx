@@ -17,10 +17,10 @@ const Tutor = () => {
   return (
     <>
       <NavBar user={user} notificationCount={notifications.unreadCount} />
-      <section className="bg-[#f3fff1]">
-        <div className="flex flex-col space-y-8 container mx-auto">
+      <main className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-6 bg-[#f3fff1]">
+        <div className="flex flex-col space-y-8">
           {/* Top Div */}
-          <div className="flex items-center flex-col md:flex-row justify-between m-8">
+          <div className="flex items-center flex-col md:flex-row justify-between">
             <div className="">
               <div className="flex items-center gap-4">
                 <Image
@@ -38,9 +38,8 @@ const Tutor = () => {
                 Browse verified educators and book your next session.
               </p>
             </div>
-
-            <form className=" md:h-12 flex md:flex-row flex-col gap-2 bg-none md:gap-4 items-center md:bg-[#FFFFFF] md:w-fit md:border md:border-[#F3F4F6] rounded-lg p-6 md:pr-2 md:py-9">
-              <div className="flex items-center gap-4 bg-white border border-[#E5E7EA] focus-within:border-[#43b75d] focus-within:shadow-sm focus-within:shadow-[#43b75d] transition-shadow duration-200 p-2 w-96 lg:w-fit xl:w-96 rounded-lg">
+            <form className="w-full md:w-auto md:h-12 flex md:flex-row flex-col gap-2 md:gap-4 items-center md:bg-[#FFFFFF] md:border md:border-[#F3F4F6] rounded-lg p-4 md:p-2">
+              <div className="flex items-center gap-3 bg-white border border-[#E5E7EA] focus-within:border-[#43b75d] focus-within:shadow-sm focus-within:shadow-[#43b75d] transition-shadow duration-200 p-2 w-full md:w-96 rounded-lg">
                 <Image
                   src={"/search.svg"}
                   alt="Search Icon"
@@ -91,19 +90,20 @@ const Tutor = () => {
           </div>
 
           {/* Results Div */}
-          <div className="flex flex-col justify-center gap-8 p-6 border border-[#f3f4f6] rounded-xl bg-[#fff] mx-auto">
-            <h2 className="text-[##394050] text-lg md:text-xl font-semibold">
-              Results (23)
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
-              {mockTutors?.map((tutor, index) => (
-                <TutorCard tutor={tutor} key={index} />
-              ))}
+          <div className="flex flex-col justify-center gap-6">
+            <div className="p-6 border border-[#f3f4f6] rounded-xl bg-[#fff]">
+              <h2 className="text-[#394050] text-lg md:text-xl font-semibold">
+                Results ({mockTutors?.length ?? 0})
+              </h2>
+              <div className="mt-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {mockTutors?.map((tutor, index) => (
+                  <TutorCard tutor={tutor} key={index} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </main>
     </>
   );
 };

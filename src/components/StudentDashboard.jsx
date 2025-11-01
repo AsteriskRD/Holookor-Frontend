@@ -1,14 +1,14 @@
 "use client";
 
 import NavBar from "./navigation/NavBar";
-import WelcomeBanner from "./dashboard/WelcomeBanner";
-import StatsGrid from "./dashboard/StatsGrid";
-import UpcomingSessionCard from "./dashboard/UpcomingSessionCard";
-import QuickActionsGrid from "./dashboard/QuickActionsGrid";
-import DailyStreakTracker from "./dashboard/DailyStreakTracker";
-import SessionsList from "./dashboard/SessionsList";
-import PerformanceOverview from "./dashboard/PerformanceOverview";
-import AIRecommendationCard from "./dashboard/AIRecommendationCard";
+import WelcomeBanner from "./all-dashboard-components/WelcomeBanner";
+import StatsGrid from "./all-dashboard-components/StatsGrid";
+import UpcomingSessionCard from "./all-dashboard-components/UpcomingSessionCard";
+import QuickActionsGrid from "./all-dashboard-components/QuickActionsGrid";
+import DailyStreakTracker from "./all-dashboard-components/DailyStreakTracker";
+import SessionsList from "./all-dashboard-components/SessionsList";
+import PerformanceOverview from "./all-dashboard-components/PerformanceOverview";
+import AIRecommendationCard from "./all-dashboard-components/AIRecommendationCard";
 
 /**
  * Main Dashboard component
@@ -19,7 +19,7 @@ import AIRecommendationCard from "./dashboard/AIRecommendationCard";
  * - Implement error handling and loading states
  * - Add real-time updates for notifications and sessions
  */
-export default function Dashboard({ data }) {
+export default function StudentDashboard({ data }) {
   const {
     user,
     notifications,

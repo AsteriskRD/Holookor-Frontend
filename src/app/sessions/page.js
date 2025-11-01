@@ -77,10 +77,10 @@ export default function SessionPage() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-4 sm:pb-8">
       <NavBar />
      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
+      <div className="grid grid-cols-1 mt-10 md:grid-cols-3 gap-4 sm:gap-8">
         {/* Left Column */}
         <div className="col-span-1">
           {/* Book Session Title */}

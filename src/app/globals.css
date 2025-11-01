@@ -179,14 +179,14 @@
     outline-offset: 2px; */
   }
   body {
-    background-color: var(--background);
+    background-color: #f3fff1;
     color: var(--foreground);
   }
 }
 
 @layer base {
   html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-  body { background-color: #ffffff; color: #1a202c; }
+  body { background-color: #f3fff1; color: #1a202c; }
 
   /* Slightly larger base font on larger screens, smaller on phones */
   @media (max-width: 640px) {
