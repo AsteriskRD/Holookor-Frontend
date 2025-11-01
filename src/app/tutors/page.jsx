@@ -2,8 +2,9 @@ import Image from "next/image";
 import TutorCard from "./TutorCard";
 import NavBar from "@/components/navigation/NavBar";
 import { mockStore } from "@/data/dashboardMockData";
-import Button from "./ui/button";
+
 import { mockTutors } from "@/data/tutorMockData";
+import Button from "@/components/ui/Button";
 
 const dashboardData = {
   user: mockStore.user,

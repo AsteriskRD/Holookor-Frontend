@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { Search } from "lucide-react";
-import TutorCard from "../tutor-card";
-import ScheduleTime from "../schedule-time";
-import SessionDetail from "../session-detail";
+import TutorCard from "../../components/tutor-card";
+import ScheduleTime from "../../components/schedule-time";
+import SessionDetail from "./session-detail";
 import ConfirmBooking from "./confirm-booking";
-import Button from "../ui/Button";
+import Button from "../../components/ui/Button";
+import NavBar from "@/components/navigation/NavBar";
 
-export default function BookingLayout() {
+export default function SessionPage() {
   const [selectedTime, setSelectedTime] = useState("08:00");
   const [sessionLength, setSessionLength] = useState("1 Hour");
   const [topic, setTopic] = useState("Algebra");
@@ -77,6 +78,8 @@ export default function BookingLayout() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
+      <NavBar />
+     
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
         {/* Left Column */}
         <div className="col-span-1">

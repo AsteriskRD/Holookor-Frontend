@@ -1,5 +1,6 @@
 // import Button from "@/components/Button"
-import Button from "./ui/button";
+
+import Button from "@/components/ui/Button";
 import { Clock } from "lucide-react";
 import Image from "next/image";
 
@@ -82,7 +83,7 @@ const TutorCard = ({ tutor }) => {
         <div className="flex w-full flex-col gap-2 md:gap-8 md:flex-row items-center pb-2">
           {/* <Button text={'View Profile'} isPrimary={false} />
                     <Button text={'Book Session'} isPrimary={true} /> */}
-          <Button className="flex w-full items-center gap-2 bg-white text-[#16a34a] border-2 border-[#16a34a] px-6 py-2.5 rounded-lg hover:bg-green-700 hover:text-white transition-colors ">
+          <Button className="flex w-full items-center gap-2 bg-white text-gray-400 border-2 border-[#16a34a] px-6 py-2.5 rounded-lg hover:bg-green-700 hover:text-white transition-colors ">
             <span>View Profile</span>
           </Button>
           <Button className="flex w-full items-center gap-2 bg-[var(--color-primary-600)] text-white px-6 py-2.5 rounded-lg hover:bg-green-700 transition-colors border-2 border-[#16a34a]">

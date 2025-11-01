@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { FaPaypal } from "react-icons/fa";
-import Button from "../ui/Button";
-import PaymentSuccessfulModal from "../payment-successful-modal";
-import LiveSession from "../live-session";
+import Button from "../../components/ui/Button";
+import PaymentSuccessfulModal from "../../components/payment-successful-modal";
+import LiveSession from "./live-session";
 
 export default function ConfirmBooking({
   onBack,
