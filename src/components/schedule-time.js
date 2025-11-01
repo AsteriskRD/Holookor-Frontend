@@ -1,62 +1,88 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { Clock, X, Plus, ChevronDown } from "lucide-react"
-import Button from "@/components/ui/Button"
+import { useState, useEffect, useRef } from "react";
+import { Clock, X, Plus, ChevronDown } from "lucide-react";
+import Button from "./ui/Button";
 
-const timeSlots = ["08:00", "09:00", "10:00", "11:00", "12:00", "01:00", "02:00", "03:00"]
-const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-const frequencyOptions = ["One-time", "Weekly", "Bi-weekly", "Monthly"]
+const timeSlots = [
+  "08:00",
+  "09:00",
+  "10:00",
+  "11:00",
+  "12:00",
+  "01:00",
+  "02:00",
+  "03:00",
+];
+const days = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
+const frequencyOptions = ["One-time", "Weekly", "Bi-weekly", "Monthly"];
 
 export default function ScheduleTime({ selectedTime, setSelectedTime }) {
-  const [selectedDay, setSelectedDay] = useState("Monday")
-  const [isDayDropdownOpen, setIsDayDropdownOpen] = useState(false)
-  const [selectedSlots, setSelectedSlots] = useState([])
-  const [currentTime, setCurrentTime] = useState(null)
-  const [selectedFrequency, setSelectedFrequency] = useState("Weekly")
-  const [isFrequencyDropdownOpen, setIsFrequencyDropdownOpen] = useState(false)
-  const [startDate, setStartDate] = useState("")
-  const [endDate, setEndDate] = useState("")
+  const [selectedDay, setSelectedDay] = useState("Monday");
+  const [isDayDropdownOpen, setIsDayDropdownOpen] = useState(false);
+  const [selectedSlots, setSelectedSlots] = useState([]);
+  const [currentTime, setCurrentTime] = useState(null);
+  const [selectedFrequency, setSelectedFrequency] = useState("Weekly");
+  const [isFrequencyDropdownOpen, setIsFrequencyDropdownOpen] = useState(false);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   // Refs for dropdowns
-  const dayDropdownRef = useRef(null)
-  const frequencyDropdownRef = useRef(null)
+  const dayDropdownRef = useRef(null);
+  const frequencyDropdownRef = useRef(null);
 
   // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (dayDropdownRef.current && !dayDropdownRef.current.contains(e.target)) {
-        setIsDayDropdownOpen(false)
+      if (
+        dayDropdownRef.current &&
+        !dayDropdownRef.current.contains(e.target)
+      ) {
+        setIsDayDropdownOpen(false);
       }
-      if (frequencyDropdownRef.current && !frequencyDropdownRef.current.contains(e.target)) {
-        setIsFrequencyDropdownOpen(false)
+      if (
+        frequencyDropdownRef.current &&
+        !frequencyDropdownRef.current.contains(e.target)
+      ) {
+        setIsFrequencyDropdownOpen(false);
       }
-    }
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleAddTime = () => {
     if (currentTime) {
-      const newSlot = `${selectedDay.slice(0, 3).toUpperCase()} ${currentTime}`
-      setSelectedSlots([...selectedSlots, newSlot])
-      setCurrentTime(null)
+      const newSlot = `${selectedDay.slice(0, 3).toUpperCase()} ${currentTime}`;
+      setSelectedSlots([...selectedSlots, newSlot]);
+      setCurrentTime(null);
     }
-  }
+  };
 
   const handleRemoveSlot = (index) => {
-    setSelectedSlots(selectedSlots.filter((_, i) => i !== index))
-  }
+    setSelectedSlots(selectedSlots.filter((_, i) => i !== index));
+  };
 
   const handleTimeSelect = (time) => {
-    setCurrentTime(time)
-    setSelectedTime(time)
-  }
+    setCurrentTime(time);
+    setSelectedTime(time);
+  };
 
   return (
     <div className="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto p-4 sm:p-6">
       {/* Title */}
-      <h3 className="text-base sm:text-lg font-bold mb-1" style={{ color: "#0a0a0a" }}>
+      <h3
+        className="text-base sm:text-lg font-bold mb-1"
+        style={{ color: "#0a0a0a" }}
+      >
         Schedule Time
       </h3>
       <p className="text-xs sm:text-sm mb-4" style={{ color: "#6d717f" }}>
@@ -74,7 +100,10 @@ export default function ScheduleTime({ selectedTime, setSelectedTime }) {
             <span className="font-semibold" style={{ color: "#143b0d" }}>
               {slot}
             </span>
-            <button onClick={() => handleRemoveSlot(index)} className="hover:opacity-70 transition-opacity">
+            <button
+              onClick={() => handleRemoveSlot(index)}
+              className="hover:opacity-70 transition-opacity"
+            >
               <X size={16} style={{ color: "#143b0d", cursor: "pointer" }} />
             </button>
           </div>
@@ -88,7 +117,10 @@ export default function ScheduleTime({ selectedTime, setSelectedTime }) {
             <span className="font-semibold" style={{ color: "#143b0d" }}>
               {selectedDay.slice(0, 3).toUpperCase()} {currentTime}
             </span>
-            <button onClick={() => setCurrentTime(null)} className="hover:opacity-70 transition-opacity">
+            <button
+              onClick={() => setCurrentTime(null)}
+              className="hover:opacity-70 transition-opacity"
+            >
               <X size={16} style={{ color: "#143b0d", cursor: "pointer" }} />
             </button>
           </div>
@@ -128,8 +160,8 @@ export default function ScheduleTime({ selectedTime, setSelectedTime }) {
               <button
                 key={day}
                 onClick={() => {
-                  setSelectedDay(day)
-                  setIsDayDropdownOpen(false)
+                  setSelectedDay(day);
+                  setIsDayDropdownOpen(false);
                 }}
                 className="w-full text-left px-4 py-2 hover:bg-gray-100 first:rounded-t-lg last:rounded-b-lg text-sm sm:text-base"
                 style={{
@@ -167,7 +199,10 @@ export default function ScheduleTime({ selectedTime, setSelectedTime }) {
 
       {/* Session Frequency */}
       <div>
-        <h3 className="text-base sm:text-lg font-bold mb-1" style={{ color: "#0a0a0a" }}>
+        <h3
+          className="text-base sm:text-lg font-bold mb-1"
+          style={{ color: "#0a0a0a" }}
+        >
           Session Frequency
         </h3>
         <p className="text-xs sm:text-sm mb-4" style={{ color: "#6d717f" }}>
@@ -194,13 +229,14 @@ export default function ScheduleTime({ selectedTime, setSelectedTime }) {
                 <button
                   key={option}
                   onClick={() => {
-                    setSelectedFrequency(option)
-                    setIsFrequencyDropdownOpen(false)
+                    setSelectedFrequency(option);
+                    setIsFrequencyDropdownOpen(false);
                   }}
                   className="w-full text-left px-4 py-2 hover:bg-gray-100 first:rounded-t-lg last:rounded-b-lg text-sm sm:text-base"
                   style={{
                     color: selectedFrequency === option ? "#3da755" : "#0a0a0a",
-                    backgroundColor: selectedFrequency === option ? "#e9fbe6" : "#ffffff",
+                    backgroundColor:
+                      selectedFrequency === option ? "#e9fbe6" : "#ffffff",
                   }}
                 >
                   {option}
@@ -243,5 +279,5 @@ export default function ScheduleTime({ selectedTime, setSelectedTime }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

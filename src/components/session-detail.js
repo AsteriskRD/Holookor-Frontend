@@ -1,12 +1,19 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { Clock, BookOpen, ChevronDown, ArrowRight } from "lucide-react"
-import Button from "@/components/ui/Button"
-import CancelBookingModal from "./cancel-booking-modal"
+import { useState, useEffect, useRef } from "react";
+import { Clock, BookOpen, ChevronDown, ArrowRight } from "lucide-react";
+import Button from "./ui/Button";
+import CancelBookingModal from "./booking/cancel-booking-modal";
 
-const sessionLengths = ["30 mins", "1 Hour", "1.5 Hours", "2 Hours"]
-const topics = ["Algebra", "Geometry", "Calculus", "Statistics", "Trigonometry", "Pre-Calculus"]
+const sessionLengths = ["30 mins", "1 Hour", "1.5 Hours", "2 Hours"];
+const topics = [
+  "Algebra",
+  "Geometry",
+  "Calculus",
+  "Statistics",
+  "Trigonometry",
+  "Pre-Calculus",
+];
 
 export default function SessionDetail({
   sessionLength,
@@ -17,13 +24,13 @@ export default function SessionDetail({
   setNotes,
   onProceedToPayment,
 }) {
-  const [isLengthDropdownOpen, setIsLengthDropdownOpen] = useState(false)
-  const [isTopicDropdownOpen, setIsTopicDropdownOpen] = useState(false)
-  const [isCancelModalOpen, setIsCancelModalOpen] = useState(false)
+  const [isLengthDropdownOpen, setIsLengthDropdownOpen] = useState(false);
+  const [isTopicDropdownOpen, setIsTopicDropdownOpen] = useState(false);
+  const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
 
   // Refs for dropdowns
-  const lengthDropdownRef = useRef(null)
-  const topicDropdownRef = useRef(null)
+  const lengthDropdownRef = useRef(null);
+  const topicDropdownRef = useRef(null);
 
   // Handle click outside to close dropdowns
   useEffect(() => {
@@ -32,26 +39,26 @@ export default function SessionDetail({
         lengthDropdownRef.current &&
         !lengthDropdownRef.current.contains(event.target)
       ) {
-        setIsLengthDropdownOpen(false)
+        setIsLengthDropdownOpen(false);
       }
       if (
         topicDropdownRef.current &&
         !topicDropdownRef.current.contains(event.target)
       ) {
-        setIsTopicDropdownOpen(false)
+        setIsTopicDropdownOpen(false);
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleCancelConfirm = () => {
-    setIsCancelModalOpen(false)
-    setSessionLength("1 Hour")
-    setTopic("Algebra")
-    setNotes("")
-  }
+    setIsCancelModalOpen(false);
+    setSessionLength("1 Hour");
+    setTopic("Algebra");
+    setNotes("");
+  };
 
   return (
     <>
@@ -60,16 +67,25 @@ export default function SessionDetail({
         style={{ borderColor: "#e5e7ea", backgroundColor: "#ffffff" }}
       >
         {/* Header */}
-        <h2 className="text-base sm:text-lg font-bold mb-1 sm:mb-2" style={{ color: "#0a0a0a" }}>
+        <h2
+          className="text-base sm:text-lg font-bold mb-1 sm:mb-2"
+          style={{ color: "#0a0a0a" }}
+        >
           Session Detail
         </h2>
-        <p className="text-xs sm:text-sm mb-4 sm:mb-6" style={{ color: "#6d717f" }}>
+        <p
+          className="text-xs sm:text-sm mb-4 sm:mb-6"
+          style={{ color: "#6d717f" }}
+        >
           Select Topic and length
         </p>
 
         {/* Session Length */}
         <div className="mb-4 sm:mb-6" ref={lengthDropdownRef}>
-          <label className="block text-sm sm:text-base font-semibold mb-2" style={{ color: "#0a0a0a" }}>
+          <label
+            className="block text-sm sm:text-base font-semibold mb-2"
+            style={{ color: "#0a0a0a" }}
+          >
             Session Length
           </label>
           <div className="relative">
@@ -94,13 +110,14 @@ export default function SessionDetail({
                   <button
                     key={length}
                     onClick={() => {
-                      setSessionLength(length)
-                      setIsLengthDropdownOpen(false)
+                      setSessionLength(length);
+                      setIsLengthDropdownOpen(false);
                     }}
                     className="w-full text-left px-4 py-2 hover:bg-gray-100 first:rounded-t-lg last:rounded-b-lg text-sm sm:text-base"
                     style={{
                       color: sessionLength === length ? "#3da755" : "#0a0a0a",
-                      backgroundColor: sessionLength === length ? "#e9fbe6" : "#ffffff",
+                      backgroundColor:
+                        sessionLength === length ? "#e9fbe6" : "#ffffff",
                     }}
                   >
                     {length}
@@ -116,7 +133,10 @@ export default function SessionDetail({
 
         {/* Topic */}
         <div className="mb-4 sm:mb-6" ref={topicDropdownRef}>
-          <label className="block text-sm sm:text-base font-semibold mb-2" style={{ color: "#0a0a0a" }}>
+          <label
+            className="block text-sm sm:text-base font-semibold mb-2"
+            style={{ color: "#0a0a0a" }}
+          >
             Topic
           </label>
           <div className="relative">
@@ -141,8 +161,8 @@ export default function SessionDetail({
                   <button
                     key={t}
                     onClick={() => {
-                      setTopic(t)
-                      setIsTopicDropdownOpen(false)
+                      setTopic(t);
+                      setIsTopicDropdownOpen(false);
                     }}
                     className="w-full text-left px-4 py-2 hover:bg-gray-100 first:rounded-t-lg last:rounded-b-lg text-sm sm:text-base"
                     style={{
@@ -160,7 +180,10 @@ export default function SessionDetail({
 
         {/* Notes for Tutor */}
         <div className="mb-4 sm:mb-6">
-          <label className="block text-sm sm:text-base font-semibold mb-2" style={{ color: "#0a0a0a" }}>
+          <label
+            className="block text-sm sm:text-base font-semibold mb-2"
+            style={{ color: "#0a0a0a" }}
+          >
             Notes for Tutor
           </label>
           <textarea
@@ -208,5 +231,5 @@ export default function SessionDetail({
         onCancel={() => setIsCancelModalOpen(false)}
       />
     </>
-  )
+  );
 }

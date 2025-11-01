@@ -137,7 +137,7 @@
   --color-neutral-200: #e5e5e5;
   --color-neutral-300: #d4d4d4;
 }
-
+/* {
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
 
@@ -160,7 +160,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   /* Sidebar */
-  --color-sidebar: var(--sidebar);
+  /* --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
@@ -168,7 +168,7 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-}
+} */ 
 
 /*  BASE STYLES  */
 

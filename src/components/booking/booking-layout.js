@@ -1,28 +1,28 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Search } from "lucide-react"
-import Button from "@/components/ui/Button"
-import TutorCard from "./tutor-card"
-import ScheduleTime from "./schedule-time"
-import SessionDetail from "./session-detail"
-import ConfirmBooking from "./confirm-booking"  
+import { useState } from "react";
+import { Search } from "lucide-react";
+import TutorCard from "../tutor-card";
+import ScheduleTime from "../schedule-time";
+import SessionDetail from "../session-detail";
+import ConfirmBooking from "./confirm-booking";
+import Button from "../ui/Button";
 
 export default function BookingLayout() {
-  const [selectedTime, setSelectedTime] = useState("08:00")
-  const [sessionLength, setSessionLength] = useState("1 Hour")
-  const [topic, setTopic] = useState("Algebra")
-  const [notes, setNotes] = useState("")
-  const [searchQuery, setSearchQuery] = useState("")
-  const [searchResults, setSearchResults] = useState([])
+  const [selectedTime, setSelectedTime] = useState("08:00");
+  const [sessionLength, setSessionLength] = useState("1 Hour");
+  const [topic, setTopic] = useState("Algebra");
+  const [notes, setNotes] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
-  const [currentScreen, setCurrentScreen] = useState("booking")
+  const [currentScreen, setCurrentScreen] = useState("booking");
 
-  const [selectedTimes, setSelectedTimes] = useState([])
+  const [selectedTimes, setSelectedTimes] = useState([]);
 
-  const [frequency, setFrequency] = useState("Weekly")
-  const [startDate, setStartDate] = useState("")
-  const [endDate, setEndDate] = useState("")
+  const [frequency, setFrequency] = useState("Weekly");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
@@ -34,31 +34,31 @@ export default function BookingLayout() {
       ].filter(
         (item) =>
           item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          item.category.toLowerCase().includes(searchQuery.toLowerCase()),
-      )
-      setSearchResults(results)
+          item.category.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setSearchResults(results);
     } else {
-      setSearchResults([])
+      setSearchResults([]);
     }
-  }
+  };
 
   const handleSearchInputChange = (e) => {
-    setSearchQuery(e.target.value)
-  }
+    setSearchQuery(e.target.value);
+  };
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-      handleSearch()
+      handleSearch();
     }
-  }
+  };
 
   const handleProceedToPayment = () => {
-    setCurrentScreen("confirm")
-  }
+    setCurrentScreen("confirm");
+  };
 
   const handleBackToBooking = () => {
-    setCurrentScreen("booking")
-  }
+    setCurrentScreen("booking");
+  };
 
   if (currentScreen === "confirm") {
     return (
@@ -72,17 +72,20 @@ export default function BookingLayout() {
         startDate={startDate}
         endDate={endDate}
       />
-    )
+    );
   }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
-     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
         {/* Left Column */}
         <div className="col-span-1">
           {/* Book Session Title */}
           <div className="mb-4 sm:mb-8">
-            <h1 className="text-xl sm:text-2xl font-bold mb-2" style={{ color: "#0a0a0a" }}>
+            <h1
+              className="text-xl sm:text-2xl font-bold mb-2"
+              style={{ color: "#0a0a0a" }}
+            >
               Book Session
             </h1>
             <p className="text-sm" style={{ color: "#6d717f" }}>
@@ -94,7 +97,10 @@ export default function BookingLayout() {
           <TutorCard />
 
           {/* Schedule Time */}
-          <ScheduleTime selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
+          <ScheduleTime
+            selectedTime={selectedTime}
+            setSelectedTime={setSelectedTime}
+          />
         </div>
 
         {/* Right Column */}
@@ -121,17 +127,25 @@ export default function BookingLayout() {
                 }}
               />
             </div>
-            <Button 
-            onClick={handleSearch} 
-            style={{ backgroundColor: "#3da755", color: "#ffffff" }} className="w-full sm:w-auto px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold">
+            <Button
+              onClick={handleSearch}
+              style={{ backgroundColor: "#3da755", color: "#ffffff" }}
+              className="w-full sm:w-auto px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold"
+            >
               Search
             </Button>
           </div>
 
           {/* Search Results */}
           {searchResults.length > 0 && (
-            <div className="mb-4 sm:mb-8 p-3 sm:p-4 rounded-lg border" style={{ borderColor: "#e5e7ea", backgroundColor: "#f9fafb" }}>
-              <h3 className="font-bold mb-2 sm:mb-3" style={{ color: "#0a0a0a" }}>
+            <div
+              className="mb-4 sm:mb-8 p-3 sm:p-4 rounded-lg border"
+              style={{ borderColor: "#e5e7ea", backgroundColor: "#f9fafb" }}
+            >
+              <h3
+                className="font-bold mb-2 sm:mb-3"
+                style={{ color: "#0a0a0a" }}
+              >
                 Search Results
               </h3>
               <div className="space-y-2">
@@ -141,7 +155,9 @@ export default function BookingLayout() {
                     className="p-2 rounded hover:bg-gray-100 cursor-pointer"
                     style={{ color: "#394050" }}
                   >
-                    <p className="font-semibold text-sm sm:text-base">{result.title}</p>
+                    <p className="font-semibold text-sm sm:text-base">
+                      {result.title}
+                    </p>
                     <p className="text-xs" style={{ color: "#6d717f" }}>
                       {result.category}
                     </p>
@@ -164,5 +180,5 @@ export default function BookingLayout() {
         </div>
       </div>
     </div>
-  )
+  );
 }

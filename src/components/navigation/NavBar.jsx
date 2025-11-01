@@ -20,7 +20,7 @@ export default function   NavBar({ user, notificationCount }) {
   const navItems = ["Dashboard", "Sessions", "Tutors", "Study Hub", "Progress"];
 
   return (
-    <nav className="bg-[var(--background)] border-b border-[var(--color-border)] sticky top-0 z-50">
+    <nav className="bg-[#f3fff1] border-b border-[var(--color-border)] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center gap-6 py-4">
           {/* Logo */}

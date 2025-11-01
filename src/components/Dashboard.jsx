@@ -50,7 +50,7 @@ export default function Dashboard({ data }) {
   };
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen  ">
       <NavBar user={user} notificationCount={notifications.unreadCount} />
 
       <main className="max-w-screen-xl mx-auto px-2 sm:px-3 lg:px-4 py-6">
