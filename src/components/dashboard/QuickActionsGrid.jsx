@@ -30,17 +30,24 @@ export default function QuickActionsGrid() {
   ];
 
   return (
-    <div className="grid grid-cols-2 gap-4">
-      {actions.map((action) => (
-        <Button
-          key={action.label}
-          variant="ghost"
-          className={`flex-col h-28 ${action.color} border-none rounded-xl transition-all duration-200`}
-        >
-          <action.icon className="w-6 h-6 mb-3" />
-          <span className="text-sm font-medium">{action.label}</span>
-        </Button>
-      ))}
-    </div>
+    <>
+      <div className=" bg-[var(--color-card)] p-4 rounded-lg">
+        <span className="text-lg font-semibold mb-4 text-[var(--color-foreground)]">
+          Quick Actions
+        </span>
+        <div className="grid grid-cols-2 gap-4 bg-[var(--color-card)] p-4 rounded-lg">
+          {actions.map((action) => (
+            <Button
+              key={action.label}
+              variant="ghost"
+              className={`flex-col h-28 ${action.color} border-none rounded-xl transition-all duration-200`}
+            >
+              <action.icon className="w-6 h-6 mb-3" />
+              <span className="text-sm font-medium">{action.label}</span>
+            </Button>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }

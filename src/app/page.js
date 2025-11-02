@@ -18,5 +18,7 @@ export default function Home() {
     dailyStreak: mockQuery.dailyStreak,
   };
   
-  return <Dashboard data={dashboardData} />;
+  return <div className='bg-[#f3fff1]'>
+    <Dashboard data={dashboardData} />
+  </div>
 }

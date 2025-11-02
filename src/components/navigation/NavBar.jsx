@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Bell, ChevronDown } from "lucide-react";
 import Logo from "../Logo";
 import Avatar from "../ui/Avatar";
 import Badge from "../ui/Badge";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 /**
  * Navigation Bar component
@@ -13,25 +14,29 @@ import Link from "next/link";
  * TODO: API Integration - Connect notification bell to real-time notification service
  * TODO: API Integration - Connect user dropdown to authentication/profile management
  */
+
+const navItems = [
+  { name: "Dashboard", href: "/" },
+  { name: "Sessions", href: "/sessions" },
+  { name: "Tutors", href: "/tutors" },
+  { name: "Study Hub", href: "/study-hub" },
+  { name: "Progress", href: "/progress" },
+];
+
 export default function NavBar({ user, notificationCount }) {
+  const pathname = usePathname();
   const [activeTab, setActiveTab] = useState("Dashboard");
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  // const navItems = ["Dashboard", "Sessions", "Tutors", "Study Hub", "Progress"];
-
-  // Add the HREF attribute to the navbar items array for link ##Praise
-  // Change the navItems to an object with label and href values
-  const navItems = [
-    { label: "Dashboard", href: "/" },
-    { label: "Sessions", href: "/" },
-    { label: "Tutors", href: "/tutors" },
-    { label: "Study Hub", href: "/" },
-    { label: "Progress", href: "/" },
-  ]
-  // TODO: Add pathname to check active link and keep activeLink styles on containing params pathname....  ## Praise
+  // Automatically update active tab when route changes
+  useEffect(() => {
+    const current = navItems.find((item) => item.href === pathname);
+    if (current) setActiveTab(current.name);
+  }, [pathname]);
 
   return (
-    <nav className="bg-[var(--background)] border-b border-[var(--color-border)] sticky top-0 z-50">
+    <nav className="bg-[#f3fff1] border-b border-[var(--color-border)] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center gap-6 py-4">
           {/* Logo */}
@@ -43,17 +48,16 @@ export default function NavBar({ user, notificationCount }) {
           <div className="flex-1 flex justify-center">
             <div className="bg-white rounded-full px-2 py-1 shadow-sm flex items-center gap-1">
               {navItems.map((item) => (
-                // Added the next link component for linking the pages through the app-router  ##Praie
                 <Link
-                  key={item.label}
-                  onClick={() => setActiveTab(item.label)}
-                  className={`text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ${activeTab === item.label
-                    ? "bg-[var(--primary)] text-white shadow"
-                    : "text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
-                    }`}
+                  key={item.name}
                   href={item.href}
+                  onClick={() => setActiveTab(item.name)}
+                  className={`text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ${activeTab === item.name
+                      ? "bg-[#0c5b29] text-white shadow"
+                      : "text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
+                    }`}
                 >
-                  {item.label}
+                  {item.name}
                 </Link>
               ))}
             </div>
@@ -80,13 +84,13 @@ export default function NavBar({ user, notificationCount }) {
                 onClick={() => setShowUserMenu(!showUserMenu)}
                 className="flex items-center gap-3 p-1.5 hover:bg-[var(--muted)] rounded-lg transition-colors duration-150"
               >
-                <Avatar src={user.avatarUrl} alt={user.fullName} size="md" />
+                <Avatar src={user?.avatarUrl} alt={user?.fullName || 'User'} size="md" />
                 <div className="hidden md:block text-left">
                   <div className="text-sm font-medium text-[var(--foreground)] leading-tight">
-                    {user.fullName}
+                    {user?.fullName || "Loading..."}
                   </div>
                   <div className="text-xs text-[var(--muted-foreground)] leading-tight">
-                    {user.email}
+                    {user?.email || " "}
                   </div>
                 </div>
                 <ChevronDown className="w-4 h-4 text-[var(--muted-foreground)] hidden sm:block" />
@@ -100,9 +104,9 @@ export default function NavBar({ user, notificationCount }) {
                   <button className="w-full px-4 py-2 text-left text-sm hover:bg-[var(--muted)] transition-colors duration-150">
                     Settings
                   </button>
-                  <div className="border-t border-[var(--border)] my-1"></div>
-                  <button className="w-full px-4 py-2 text-left text-sm hover:bg-[var(--muted)] transition-colors duration-150 text-[var(--accent)]">
-                    Logout
+                  <div className="border-t border-[var(--border)]  my-1"></div>
+                  <button className="w-full px-4 py-2 text-left text-white text-sm bg-[#FF0000] hover:bg-[#8B0000] transition-colors duration-150 text-[var(--accent)]">
+                    Log out
                   </button>
                 </div>
               )}
@@ -110,6 +114,29 @@ export default function NavBar({ user, notificationCount }) {
           </div>
         </div>
       </div>
+
+      {/* Mobile menu overlay */}
+      {showMobileMenu && (
+        <div className="md:hidden bg-[var(--background)] border-t border-[var(--color-border)]">
+          <div className="px-4 py-3 space-y-1">
+            {navItems.map((item) => (
+              <button
+                key={item}
+                onClick={() => {
+                  setActiveTab(item);
+                  setShowMobileMenu(false);
+                }}
+                className={`w-full text-left px-3 py-2 rounded transition-colors duration-150 ${activeTab === item
+                    ? "bg-[var(--primary)] text-white"
+                    : "text-[var(--color-muted-foreground)] hover:bg-[var(--muted)]"
+                  }`}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

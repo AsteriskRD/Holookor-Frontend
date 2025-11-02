@@ -96,7 +96,7 @@ export const mockQuery = {
   ],
   dailyStreak: {
     currentStreak: 7,
-    streakDays: [true, true, true, true, true, true, true]
+    streakDays: [true, true, true, true ]
   }
 };
 
