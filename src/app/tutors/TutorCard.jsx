@@ -2,13 +2,14 @@
 import Button from "@/components/ui/Button"
 import { Clock } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 
 const TutorCard = ({ tutor }) => {
 
     return (
         <div className="flex flex-col bg-white gap-6 items-center border border-[#f3f4f6] rounded-xl p-3">
-            <div className="mt-4 md:mt-2 flex w-full px-6 ml-4 items-center justify-around gap-2 md:gap-4 py-2">
+            <div className="mt-4 md:mt-2 flex w-full px-3 ml-4 items-center gap-2 md:gap-4 py-2">
                 <Image
                     src={tutor.tutorImg}
                     className="w-14 h-14 md:w-[72px] md:h-[72px] rounded-full border border-black"
@@ -57,7 +58,7 @@ const TutorCard = ({ tutor }) => {
                     ))
                 }
             </div>
-            <p className="text-[#6d717f] mx-2 sm:max-w-[420px] md:max-w-[480px] text-lg md:text-xl max-w-5/6 tracking-wide">{tutor.experience?.split("").length > 80 ? `${tutor.experience.slice(0, 80)}...` : tutor.experience}</p>
+            <p className="text-[#6d717f] mx-2 sm:max-w-[420px] md:max-w-[450px] text-lg md:text-xl max-w-5/6 tracking-wide">{tutor.experience?.split("").length > 80 ? `${tutor.experience.slice(0, 80)}...` : tutor.experience}</p>
             <div className="flex gap-6 text-lg md:text-xl flex-col w-full pr-4">
 
                 <div className="flex items-center justify-between px-6">
@@ -71,19 +72,23 @@ const TutorCard = ({ tutor }) => {
                     <h2 className="text-[#329321]">${tutor.rate}/hr</h2>
                 </div>
 
-                <div className="flex w-full flex-col gap-2 md:gap-8 md:flex-row items-center pb-2">
+                <div className="flex w-full md:px-4 flex-col gap-2 md:gap-8 md:flex-row items-center pb-2">
                     {/* <Button text={'View Profile'} isPrimary={false} />
                     <Button text={'Book Session'} isPrimary={true} /> */}
-                    <Button
-                        className="flex w-full items-center gap-2 bg-white text-[#16a34a] border-2 border-[#16a34a] px-6 py-2.5 rounded-lg hover:bg-green-700 hover:text-white transition-colors "
-                    >
-                        <span>View Profile</span>
-                    </Button>
-                    <Button
-                        className="flex w-full items-center gap-2 bg-[var(--color-primary-600)] text-white px-6 py-2.5 rounded-lg hover:bg-green-700 transition-colors border-2 border-[#16a34a]"
-                    >
-                        <span>Book Session</span>
-                    </Button>
+                    <Link href={`/tutors/${tutor.rate}`} className="w-full">
+                        <Button
+                            className="flex w-full items-center gap-2 text-lg md:text-[17px] !text-[var(--color-primary-600)] bg-white border-2 border-[#16a34a] px-6 py-2.5 rounded-lg hover:bg-green-700 hover:!text-white transition-colors "
+                        >
+                            <span>View Profile</span>
+                        </Button>
+                    </Link>
+                    <Link href={'/'} className="w-full">
+                        <Button
+                            className="flex w-full items-center gap-2 text-lg md:text-[17px] bg-[var(--color-primary-600)] text-white px-6 py-2.5 rounded-lg hover:bg-green-700 transition-colors border-2 border-[#16a34a]"
+                        >
+                            <span>Book Session</span>
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -91,8 +96,3 @@ const TutorCard = ({ tutor }) => {
 }
 
 export default TutorCard
-
-
-// primary: 'bg-[var(--color-primary-600)] text-white border-2 border-[#16a34a] hover:bg-[var(--color-primary-700)] active:bg-[var(--color-primary-800)] focus:ring-[var(--color-primary-500)]',
-//     secondary: 'bg-white text-[#16a34a] border-2 border-[#16a34a] hover:bg-[var(--color-neutral-200)] active:bg-[var(--color-neutral-300)] focus:ring-[var(--color-neutral-400)] hover:text-white',
-//     variant = "secondary"

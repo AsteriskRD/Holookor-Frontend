@@ -1,6 +1,6 @@
 "use client";
 
-import NavBar from "./navigation/NavBar";
+// import NavBar from "./navigation/NavBar";
 import WelcomeBanner from "./dashboard/WelcomeBanner";
 import StatsGrid from "./dashboard/StatsGrid";
 import UpcomingSessionCard from "./dashboard/UpcomingSessionCard";
@@ -22,7 +22,7 @@ import AIRecommendationCard from "./dashboard/AIRecommendationCard";
 export default function Dashboard({ data }) {
   const {
     user,
-    notifications,
+    // notifications,
     dashboardStats,
     upcomingSession,
     todaySessions,
@@ -51,7 +51,7 @@ export default function Dashboard({ data }) {
 
   return (
     <div className="min-h-screen ">
-      <NavBar user={user} notificationCount={notifications.unreadCount} />
+      {/* <NavBar user={user} notificationCount={notifications.unreadCount} /> */}
 
       <main className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Top header: welcome text on the left, stats on the right */}

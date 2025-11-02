@@ -1,31 +1,31 @@
 import Image from "next/image"
 import TutorCard from "./TutorCard"
-import NavBar from "@/components/navigation/NavBar"
-import { mockStore } from "@/data/dashboardMockData"
+// import NavBar from "@/components/navigation/NavBar"
+// import { mockStore } from "@/data/dashboardMockData"
 import Button from "@/components/ui/Button"
 import { mockTutors } from "@/data/tutorMockData"
 
 
-const dashboardData = {
-    user: mockStore.user,
-    notifications: mockStore.notifications
-}
+// const dashboardData = {
+//     user: mockStore.user,
+//     notifications: mockStore.notifications
+// }
 
-const {
-    user,
-    notifications
-} = dashboardData;
+// const {
+//     user,
+//     notifications
+// } = dashboardData;
 
 
 const Tutor = () => {
     return (
         <>
-            <NavBar user={user} notificationCount={notifications.unreadCount} />
+            {/* <NavBar user={user} notificationCount={notifications.unreadCount} /> */}
             <section className="bg-[#f3fff1]">
-                <div className="flex flex-col space-y-8 container mx-auto">
+                <div className="flex flex-col space-y-8 container max-w-fit items-center justify-center mx-auto">
 
                     {/* Top Div */}
-                    <div className="flex items-center flex-col md:flex-row justify-between m-8">
+                    <div className="flex items-center w-full flex-col md:flex-row justify-between m-8">
                         <div className="">
                             <div className="flex items-center gap-4">
                                 <Image
@@ -67,7 +67,7 @@ const Tutor = () => {
                                     className="outline-none w-full text-[#131927]"
                                 />
                             </div>
-                            {/* <select name="" id=""></select> */}
+
                             <div className="flex w-full items-center gap-2 md:gap-4 md:w-fit">
 
                                 <label htmlFor="course"></label>

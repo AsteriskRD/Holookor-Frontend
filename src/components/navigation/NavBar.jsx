@@ -5,6 +5,7 @@ import { Bell, ChevronDown } from "lucide-react";
 import Logo from "../Logo";
 import Avatar from "../ui/Avatar";
 import Badge from "../ui/Badge";
+import Link from "next/link";
 
 /**
  * Navigation Bar component
@@ -16,7 +17,18 @@ export default function NavBar({ user, notificationCount }) {
   const [activeTab, setActiveTab] = useState("Dashboard");
   const [showUserMenu, setShowUserMenu] = useState(false);
 
-  const navItems = ["Dashboard", "Sessions", "Tutors", "Study Hub", "Progress"];
+  // const navItems = ["Dashboard", "Sessions", "Tutors", "Study Hub", "Progress"];
+
+  // Add the HREF attribute to the navbar items array for link ##Praise
+  // Change the navItems to an object with label and href values
+  const navItems = [
+    { label: "Dashboard", href: "/" },
+    { label: "Sessions", href: "/" },
+    { label: "Tutors", href: "/tutors" },
+    { label: "Study Hub", href: "/" },
+    { label: "Progress", href: "/" },
+  ]
+  // TODO: Add pathname to check active link and keep activeLink styles on containing params pathname....  ## Praise
 
   return (
     <nav className="bg-[var(--background)] border-b border-[var(--color-border)] sticky top-0 z-50">
@@ -31,16 +43,18 @@ export default function NavBar({ user, notificationCount }) {
           <div className="flex-1 flex justify-center">
             <div className="bg-white rounded-full px-2 py-1 shadow-sm flex items-center gap-1">
               {navItems.map((item) => (
-                <button
-                  key={item}
-                  onClick={() => setActiveTab(item)}
-                  className={`text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ${activeTab === item
-                      ? "bg-[var(--primary)] text-white shadow"
-                      : "text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
+                // Added the next link component for linking the pages through the app-router  ##Praie
+                <Link
+                  key={item.label}
+                  onClick={() => setActiveTab(item.label)}
+                  className={`text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ${activeTab === item.label
+                    ? "bg-[var(--primary)] text-white shadow"
+                    : "text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
                     }`}
+                  href={item.href}
                 >
-                  {item}
-                </button>
+                  {item.label}
+                </Link>
               ))}
             </div>
           </div>
