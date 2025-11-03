@@ -13,15 +13,15 @@ export const metadata = {
 const inter = Inter();
 
 // Add the mockdata the navbar would be using after importing the component to the base layout for shared UI. ## Praise
-const dashboardData = {
-    user: mockStore.user,
-    notifications: mockStore.notifications
-}
+// const dashboardData = {
+//     user: mockStore.user,
+//     notifications: mockStore.notifications
+// }
 
-const {
-    user,
-    notifications
-} = dashboardData;
+// const {
+//     user,
+//     notifications
+// } = dashboardData;
 
 
 export default function RootLayout({ children }) {
@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
             {/* Use the inter font throughout the project after import at the top ## Praise  */}
             <body className={inter.className}>
                 {/* Add the navbar to the shared layout since they share the same UI. ## Praise*/}
-                <NavBar user={user} notificationCount={notifications.unreadCount} />
+                {/* <NavBar user={user} notificationCount={notifications.unreadCount} /> */}
                 {children}
             </body>
         </html>

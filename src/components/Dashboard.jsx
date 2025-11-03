@@ -9,6 +9,7 @@ import DailyStreakTracker from "./dashboard/DailyStreakTracker";
 import SessionsList from "./dashboard/SessionsList";
 import PerformanceOverview from "./dashboard/PerformanceOverview";
 import AIRecommendationCard from "./dashboard/AIRecommendationCard";
+import NavBar from "./navigation/NavBar";
 
 /**
  * Main Dashboard component
@@ -22,7 +23,7 @@ import AIRecommendationCard from "./dashboard/AIRecommendationCard";
 export default function Dashboard({ data }) {
   const {
     user,
-    // notifications,
+    notifications,
     dashboardStats,
     upcomingSession,
     todaySessions,

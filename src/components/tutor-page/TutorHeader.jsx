@@ -7,7 +7,7 @@ const TutorHeader = ({
     option
 }) => {
     return (
-        <div className="flex items-center w-full flex-col md:flex-row justify-between m-8">
+        <div className="flex items-center w-full flex-col md:flex-row justify-between m-8 ml-0">
             <div className="">
                 <div className="flex items-center gap-4">
                     <Image
@@ -17,10 +17,10 @@ const TutorHeader = ({
                         className="w-4 h-4 cursor-pointer"
                         alt="Left arrow"
                     />
-                    <h2 className="text-[#394050] text-2xl font-semibold">{title}</h2>
+                    <h2 className="text-[#394050] text-[18px] md:text-xl font-semibold">{title}</h2>
                 </div>
                 <p
-                    className="text-[#6D717F] text-[14px] pl-6 md:pl-0"
+                    className="text-[#6D717F] text-[12px] md:text-[14px]"
                 >{info}</p>
             </div>
 
