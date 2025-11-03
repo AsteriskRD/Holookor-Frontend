@@ -76,7 +76,7 @@ const TutorCard = ({ tutor }) => {
         <span className="text-[#22c55e] font-bold text-base sm:mr-3">
           ${tutor.rate}/hr
         </span>
-        <Button className="w-full sm:w-auto border border-[#16a34a] text-black bg-white hover:bg-[#22c55e] hover:text-white font-semibold px-4 py-2 rounded-lg transition">
+        <Button className="w-full sm:w-auto border border-[#16a34a] !text-black bg-white hover:bg-[#22c55e] hover:text-white font-semibold px-4 py-2 rounded-lg transition">
           View Profile
         </Button>
         <Button className="w-full sm:w-auto bg-[#22c55e] hover:bg-[#16a34a] text-white font-semibold px-4 py-2 rounded-lg transition">
