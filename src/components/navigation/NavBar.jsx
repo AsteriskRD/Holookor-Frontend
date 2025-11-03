@@ -36,7 +36,8 @@ export default function NavBar({ user, notificationCount }) {
   }, [pathname]);
 
   return (
-    <nav className="bg-[#f3fff1] border-b border-[var(--color-border)] sticky top-0 z-50">
+    // Changed the navBar border-bottom to --chart-5 ## Praise
+    <nav className="bg-[#f3fff1] border-b border-[var(--chart-5)] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center gap-6 py-4">
           {/* Logo */}
@@ -52,11 +53,10 @@ export default function NavBar({ user, notificationCount }) {
                   key={item.name}
                   href={item.href}
                   onClick={() => setActiveTab(item.name)}
-                  className={`text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ${
-                    activeTab === item.name
-                      ? "bg-[#0c5b29] text-white shadow"
-                      : "text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
-                  }`}
+                  className={`text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ${activeTab === item.name
+                    ? "bg-[#0c5b29] text-white shadow"
+                    : "text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -91,7 +91,7 @@ export default function NavBar({ user, notificationCount }) {
                     {user?.fullName || "Loading..."}
                   </div>
                   <div className="text-xs text-[var(--muted-foreground)] leading-tight">
-                    {user?.email|| " "}
+                    {user?.email || " "}
                   </div>
                 </div>
                 <ChevronDown className="w-4 h-4 text-[var(--muted-foreground)] hidden sm:block" />
@@ -127,11 +127,10 @@ export default function NavBar({ user, notificationCount }) {
                   setActiveTab(item);
                   setShowMobileMenu(false);
                 }}
-                className={`w-full text-left px-3 py-2 rounded transition-colors duration-150 ${
-                  activeTab === item
-                    ? "bg-[var(--primary)] text-white"
-                    : "text-[var(--color-muted-foreground)] hover:bg-[var(--muted)]"
-                }`}
+                className={`w-full text-left px-3 py-2 rounded transition-colors duration-150 ${activeTab === item
+                  ? "bg-[var(--primary)] text-white"
+                  : "text-[var(--color-muted-foreground)] hover:bg-[var(--muted)]"
+                  }`}
               >
                 {item}
               </button>

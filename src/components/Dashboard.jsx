@@ -1,6 +1,6 @@
 "use client";
 
-import NavBar from "./navigation/NavBar";
+// import NavBar from "./navigation/NavBar";
 import WelcomeBanner from "./dashboard/WelcomeBanner";
 import StatsGrid from "./dashboard/StatsGrid";
 import UpcomingSessionCard from "./dashboard/UpcomingSessionCard";
@@ -9,6 +9,7 @@ import DailyStreakTracker from "./dashboard/DailyStreakTracker";
 import SessionsList from "./dashboard/SessionsList";
 import PerformanceOverview from "./dashboard/PerformanceOverview";
 import AIRecommendationCard from "./dashboard/AIRecommendationCard";
+import NavBar from "./navigation/NavBar";
 
 /**
  * Main Dashboard component
@@ -76,7 +77,7 @@ export default function Dashboard({ data }) {
           <div className="lg:col-span-6">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                
+
                 <QuickActionsGrid />
               </div>
               <div>
