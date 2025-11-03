@@ -57,7 +57,7 @@ export default function NavBar({ user, notificationCount }) {
           </div>
 
           {/* Mobile hamburger (visible on small screens) + Centered Navigation (pill) for md+ */}
-          <div className="flex-1 flex items-center justify-center">
+          <div className="flex-1 flex items-center justify-end">
             <button
               aria-label="Toggle navigation"
               onClick={() => setShowMobileMenu((s) => !s)}
@@ -163,7 +163,7 @@ export default function NavBar({ user, notificationCount }) {
       {/* Mobile menu overlay */}
       {showMobileMenu && (
         <div className="md:hidden bg-[var(--background)] border-t border-[var(--color-border)]">
-          <div className="px-4 py-3 space-y-1">
+          <div className=" min-h-screen backdrop-blur px-4 py-3 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -173,7 +173,7 @@ export default function NavBar({ user, notificationCount }) {
                   setShowMobileMenu(false);
                 }}
               >
-                <a
+                <button
                   className={`block w-full text-left px-3 py-2 rounded transition-colors duration-150 ${
                     activeTab === item.name
                       ? "bg-[var(--primary)] text-white"
@@ -181,7 +181,7 @@ export default function NavBar({ user, notificationCount }) {
                   }`}
                 >
                   {item.name}
-                </a>
+                </button>
               </Link>
             ))}
           </div>

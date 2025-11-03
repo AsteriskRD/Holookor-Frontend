@@ -6,84 +6,82 @@ import Image from "next/image";
 
 const TutorCard = ({ tutor }) => {
   return (
-    <div className="w-full flex flex-col bg-white gap-4 items-stretch border border-[#f3f4f6] rounded-xl p-3 sm:p-4">
-      <div className="flex w-full items-start md:items-center gap-4">
+    <div className="w-full bg-white border border-[#e5e7ea] rounded-xl shadow-sm p-5 flex flex-col gap-3 transition hover:shadow-md">
+      <div className="flex items-center gap-4 mb-2">
         <Image
           src={tutor.tutorImg}
-          className="w-14 h-14 md:w-[72px] md:h-[72px] rounded-full border border-black object-cover"
-          width={72}
-          height={72}
+          className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-[#d1d5db] object-cover bg-gray-100"
+          width={56}
+          height={56}
           alt="Tutor profile image"
         />
-        <div className="flex-1 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-          <div className="min-w-0">
-            <h2 className="text-base md:text-2xl capitalize font-bold tracking-wider truncate">
+        <div className="flex-1">
+          <div className="flex items-center gap-2">
+            <h2 className="text-lg font-semibold text-[#222] truncate">
               {tutor.tutorNames}
             </h2>
-            <p className="text-sm text-[var(--color-muted-foreground)] mt-1">
-              {tutor.field}
-            </p>
+            {tutor.isVerified && (
+              <span className="flex items-center gap-1 text-green-600 text-xs font-medium">
+                <Image
+                  src="/verified.png"
+                  alt="Verified"
+                  width={16}
+                  height={16}
+                  className="w-4 h-4"
+                />
+                Verified
+              </span>
+            )}
           </div>
-          <div className="flex items-center gap-3">
-            <div className="flex gap-2 items-center text-[#43b75d]">
+          <div className="flex items-center gap-2 mt-1">
+            <span className="bg-[#131927] text-white text-xs px-2 py-1 rounded font-medium">
+              {tutor.field}
+            </span>
+            <span className="flex items-center gap-1 text-yellow-600 text-xs font-medium">
               <Image
-                src={"/verified.png"}
-                alt="Verified icon"
-                width={18}
-                height={8}
-                className="w-5 h-5 md:w-6 md:h-6"
-              />
-              <p className="text-sm md:text-base">
-                {tutor.isVerified ? "Verified" : "N/A"}
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <Image
-                src={"/star.png"}
+                src="/star.png"
                 alt="Star"
-                width={16}
-                height={16}
-                className="w-5 h-5 md:w-6 md:h-6"
+                width={14}
+                height={14}
+                className="w-4 h-4"
               />
-              <p className="text-sm md:text-base">
-                {tutor.rating} ({tutor.voteCount})
-              </p>
-            </div>
+              {tutor.rating}{" "}
+              <span className="text-[#6d717f]">({tutor.voteCount})</span>
+            </span>
           </div>
         </div>
       </div>
-      <div className="flex items-center flex-wrap gap-2 md:gap-4">
+      <div className="flex flex-wrap gap-2 mb-1">
         {tutor.courses.map((course, index) => (
-          <h3
-            className="text-[#030213] text-lg md:text-xl capitalize bg-[#f3f4f6] p-2 rounded-lg"
+          <span
             key={index}
+            className="bg-[#f3f4f6] text-[#222] text-xs px-2 py-1 rounded-lg border border-[#e5e7ea]"
           >
             {course}
-          </h3>
+          </span>
         ))}
       </div>
-      <p className="text-[#6d717f] text-sm tracking-wide">
+      <p className="text-[#6d717f] text-xs mb-2 min-h-[40px]">
         {tutor.experience?.length > 120
           ? `${tutor.experience.slice(0, 120)}...`
           : tutor.experience}
       </p>
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-        <div className="flex items-center gap-4 text-[var(--color-muted-foreground)]">
-          <Clock className="w-5 md:w-6 h-5 md:h-6" />
-          <p className="text-sm md:text-base">
-            {tutor.availability}, {tutor.timeHr}
-          </p>
-        </div>
-
-        <div className="flex items-center gap-3 w-full md:w-auto">
-          <h2 className="text-[#329321] mr-4">${tutor.rate}/hr</h2>
-          <Button className="flex-1 md:flex-none w-full md:w-auto bg-white text-gray-600 border-2 border-[#16a34a] px-4 py-2 rounded-lg hover:bg-green-700 hover:text-white transition-colors">
-            <span>View Profile</span>
-          </Button>
-          <Button className="flex-1 md:flex-none w-full md:w-auto bg-[var(--color-primary-600)] text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors border-2 border-[#16a34a]">
-            <span>Book Session</span>
-          </Button>
-        </div>
+      <div className="flex items-center gap-2 text-xs text-[#6d717f] mb-2">
+        <Clock className="w-4 h-4 mr-1" />
+        <span>
+          {tutor.availability}, {tutor.timeHr}
+        </span>
+      </div>
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-2">
+        <span className="text-[#22c55e] font-bold text-base sm:mr-3">
+          ${tutor.rate}/hr
+        </span>
+        <Button className="w-full sm:w-auto border border-[#16a34a] text-black bg-white hover:bg-[#22c55e] hover:text-white font-semibold px-4 py-2 rounded-lg transition">
+          View Profile
+        </Button>
+        <Button className="w-full sm:w-auto bg-[#22c55e] hover:bg-[#16a34a] text-white font-semibold px-4 py-2 rounded-lg transition">
+          Book Session
+        </Button>
       </div>
     </div>
   );

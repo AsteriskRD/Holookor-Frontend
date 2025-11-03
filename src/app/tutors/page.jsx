@@ -17,89 +17,69 @@ const Tutor = () => {
   return (
     <>
       <NavBar user={user} notificationCount={notifications.unreadCount} />
-      <main className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-6 bg-[#f3fff1]">
-        <div className="flex flex-col space-y-8">
-          {/* Top Div */}
-          <div className="flex items-center flex-col md:flex-row justify-between">
-            <div className="">
-              <div className="flex items-center gap-4">
+      <main className="min-h-screen bg-[#f3fff1] py-8 px-2 sm:px-4">
+        <div className="max-w-7xl mx-auto">
+          {/* Header and Search Bar */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-3 mb-1">
                 <Image
-                  src={"/arrow-left.png"}
-                  width={15}
-                  height={6}
-                  className="w-4 h-4 cursor-pointer"
+                  src="/arrow-left.png"
+                  width={18}
+                  height={18}
+                  className="w-5 h-5 cursor-pointer"
                   alt="Left arrow"
                 />
                 <h2 className="text-[#394050] text-2xl font-semibold">
                   Find Your Perfect Tutor
                 </h2>
               </div>
-              <p className="text-[#6D717F] text-[14px]">
+              <p className="text-[#6D717F] text-sm">
                 Browse verified educators and book your next session.
               </p>
             </div>
-            <form className="w-full md:w-auto md:h-12 flex md:flex-row flex-col gap-2 md:gap-4 items-center md:bg-[#FFFFFF] md:border md:border-[#F3F4F6] rounded-lg p-4 md:p-2">
-              <div className="flex items-center gap-3 bg-white border border-[#E5E7EA] focus-within:border-[#43b75d] focus-within:shadow-sm focus-within:shadow-[#43b75d] transition-shadow duration-200 p-2 w-full md:w-96 rounded-lg">
+            <form className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center w-full md:w-auto bg-white rounded-lg p-3 shadow border border-[#f3f4f6]">
+              <div className="flex items-center gap-2 bg-white border border-[#E5E7EA] focus-within:border-[#43b75d] focus-within:shadow-sm focus-within:shadow-[#43b75d] transition-shadow duration-200 px-3 py-2 rounded-lg w-full sm:w-72">
                 <Image
-                  src={"/search.svg"}
+                  src="/search.svg"
                   alt="Search Icon"
-                  className="w-5 h-5 cursor-pointer"
-                  width={4}
-                  height={4}
+                  className="w-5 h-5"
+                  width={20}
+                  height={20}
                 />
-                <label htmlFor="search" className="sr-only">
-                  Search for Tutors
-                </label>
                 <input
                   type="text"
                   id="search"
-                  placeholder="Search for anything"
-                  aria-label="Search for anything"
-                  className="outline-none w-full text-[#131927]"
+                  placeholder="Search"
+                  aria-label="Search for Tutors"
+                  className="outline-none w-full text-[#131927] bg-transparent"
                 />
               </div>
-              {/* <select name="" id=""></select> */}
-              <div className="flex w-full items-center gap-2 md:gap-4 md:w-fit">
-                <label htmlFor="course"></label>
-                <select
-                  name="course"
-                  id="course"
-                  className="rounded-lg p-2.5 w-full lg:w-28 focus:outline-[#43b75d] focus:ring-2 focus:ring-[#43b75d] cursor-pointer bg-[#f3f4f6]"
-                >
-                  <option value="" className="text-[12px]">
-                    All Levels
-                  </option>
-                  <option value="" className="text-[12px]">
-                    All Levels
-                  </option>
-                  <option value="" className="text-[12px]">
-                    All Levels
-                  </option>
-                  <option value="" className="text-[12px]">
-                    All Levels
-                  </option>
-                </select>
-                <div className="w-full md:w-fit">
-                  {/* <Button text={'Search'} isPrimary={true} width={true} /> */}
-                  <Button className="flex items-center w-full gap-2 bg-[var(--color-primary-600)] text-white px-6 py-2.5 rounded-lg hover:bg-green-700 transition-colors">
-                    <span>Search</span>
-                  </Button>
-                </div>
-              </div>
+              <select
+                name="course"
+                id="course"
+                className="rounded-lg px-3 py-2 w-full sm:w-32 focus:outline-[#43b75d] focus:ring-2 focus:ring-[#43b75d] cursor-pointer bg-[#f3f4f6] text-sm"
+              >
+                <option value="">All Levels</option>
+                <option value="">Beginner</option>
+                <option value="">Intermediate</option>
+                <option value="">Advanced</option>
+              </select>
+              <Button className="w-full sm:w-auto bg-[#22c55e] hover:bg-[#16a34a] text-white px-6 py-2.5 rounded-lg font-semibold shadow-none">
+                Search
+              </Button>
             </form>
           </div>
 
-          {/* Results Div */}
-          <div className="flex flex-col justify-center gap-6">
-            <div className="p-6 border border-[#f3f4f6] rounded-xl bg-[#fff]">
-              <h2 className="text-[#394050] text-lg md:text-xl font-semibold">
-                Results ({mockTutors?.length ?? 0})
-              </h2>
-              <div className="mt-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {mockTutors?.map((tutor, index) => (
-                  <TutorCard tutor={tutor} key={index} />
-                ))}
-              </div>
+          {/* Results Section */}
+          <div className="bg-white border border-[#f3f4f6] rounded-2xl p-6">
+            <h2 className="text-[#394050] text-lg md:text-xl font-semibold mb-4">
+              Results ({mockTutors?.length ?? 0})
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {mockTutors?.map((tutor, index) => (
+                <TutorCard tutor={tutor} key={index} />
+              ))}
             </div>
           </div>
         </div>

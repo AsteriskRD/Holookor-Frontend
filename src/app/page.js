@@ -38,7 +38,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="w-full md:w-1/3">
+          {/* <div className="w-full md:w-1/3">
             <div className="bg-white rounded-xl p-6 shadow-md">
               <h3 className="text-lg font-semibold mb-2">Your snapshot</h3>
               <div className="flex items-center justify-between">
@@ -56,7 +56,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </header>
 
         {/* Features */}
