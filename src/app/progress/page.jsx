@@ -48,13 +48,13 @@ export default function ProgressPage() {
 
         {/* Main grid: Performance chart (left) + Subject performance (right) */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-6">
             <div className="bg-white rounded-xl border #f3f4f6 p-6">
               <PerformanceOverview data={data.performance} />
             </div>
           </div>
 
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-6">
             <div className="bg-white rounded-xl border #f3f4f6 p-6">
               <SubjectPerformance items={data.subjects} />
             </div>
