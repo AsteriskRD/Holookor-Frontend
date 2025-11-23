@@ -6,7 +6,7 @@ import React from "react";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[#f3fff1]">
+    <main className="min-h-screen bg-[#F3F4F6]">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header / Hero */}
         <header className="flex flex-col-reverse md:flex-row items-center gap-8">
