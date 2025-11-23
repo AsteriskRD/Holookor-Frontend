@@ -12,29 +12,11 @@ export default function UpcomingSessionCard({ session, onJoinClass }) {
   if (!session) return null;
 
   return (
-    <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 border border-green-200 relative overflow-hidden">
+    <Card className="p-6 bg-[url('/upcoming_session.jpg')] bg-cover ">
       {/* Decorative Pattern */}
-      <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <pattern
-            id="pattern"
-            x="0"
-            y="0"
-            width="40"
-            height="40"
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              d="M0 20 L20 0 L40 20 L20 40 Z"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="text-green-600"
-            />
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#pattern)" />
-        </svg>
-      </div>
+      {/* <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
+      
+      </div> */}
 
       <div className="relative z-10">
         <div className="space-y-4 mb-6">

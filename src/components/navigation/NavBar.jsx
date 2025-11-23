@@ -49,8 +49,8 @@ export default function NavBar({ user, notificationCount }) {
 
   return (
     <nav className="bg-[#ffffff]  sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center gap-6 py-4">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+        <div className="flex items-center gap-4 py-4">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Logo />
@@ -80,13 +80,13 @@ export default function NavBar({ user, notificationCount }) {
             </button>
 
             {/* Desktop pill nav (hidden on small screens) */}
-            <div className="hidden md:block bg-white rounded-full px-2 py-3 shadow-md justify-between gap-1">
+            <div className="hidden md:block bg-white rounded-md px-2 py-4 shadow-md justify-between gap-1">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setActiveTab(item.name)}
-                  className={`text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ${
+                  className={`text-sm font-medium px-4 py-2 rounded-sm transition-colors duration-150 ${
                     activeTab === item.name
                       ? "bg-[#0c5b29] text-white shadow"
                       : "text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"

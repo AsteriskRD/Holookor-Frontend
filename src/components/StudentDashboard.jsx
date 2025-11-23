@@ -66,41 +66,41 @@ export default function StudentDashboard({ data }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mt-8">
-          <div className="lg:col-span-6">
+        <div className="grid grid-cols-1  lg:grid-cols-12 gap-10 mt-8">
+          <div className="lg:col-span-6 border #f3f4f6">
             <UpcomingSessionCard
               session={upcomingSession}
               onJoinClass={handleJoinClass}
             />
           </div>
           <div className="lg:col-span-6">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 border #f3f4f6">
               <div>
-                
                 <QuickActionsGrid />
               </div>
-              <div>
+              {/* <div>
                 <DailyStreakTracker streak={dailyStreak} />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mt-8">
-          <div className="lg:col-span-6">
+        <div className="grid  grid-cols-1 lg:grid-cols-12 gap-10 mt-8">
+          <div className="lg:col-span-6 border #f3f4f6">
             <SessionsList
               sessions={todaySessions}
               onJoinClass={handleJoinClass}
               onBookSession={handleBookSession}
             />
           </div>
-          <div className="lg:col-span-6 space-y-6">
-            <PerformanceOverview performances={weeklyPerformance} />
+          <div className="lg:col-span-6 space-y-6 border #f3f4f6">
             <AIRecommendationCard
               recommendations={aiRecommendations}
               onStartQuiz={handleStartQuiz}
             />
+            <PerformanceOverview performances={weeklyPerformance} />
           </div>
+          
         </div>
       </main>
     </div>

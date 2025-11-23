@@ -82,7 +82,7 @@
   --destructive: #ee443f;
   --destructive-foreground: #ffffff;
 
-  --border: #394050;
+  --border: #f3f4f6;
   --input: #394050;
   --ring: #43b75d;
 
@@ -99,7 +99,7 @@
   --sidebar-primary-foreground: #0a0a0a;
   --sidebar-accent: #394050;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #394050;
+  --sidebar-border: #f3f4f6;
   --sidebar-ring: #43b75d;
 }
 
@@ -174,7 +174,7 @@
 
 @layer base {
   * {
-    border-color: var(--border);
+    border-color: #f3f4f6;
     /* outline: 1px solid var(--ring);
     outline-offset: 2px; */
   }

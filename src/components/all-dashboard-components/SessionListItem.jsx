@@ -7,8 +7,8 @@ import { formatTime, formatDuration } from "@/utils/formatters";
  */
 export default function SessionListItem({ session, onJoinClass }) {
   return (
-    <div className="w-full">
-      <div className="flex items-center justify-between bg-[var(--background)] p-4 rounded-lg transition-colors duration-150">
+    <div className="w-full ">
+      <div className="flex items-center justify-between bg-[#F9FAFB] p-4 rounded-lg transition-colors duration-150">
         <div className="flex items-start  gap-4 min-w-0 py-7">
           <div className="min-w-0 py-4">
             <span className="text-xs sm:text-sm font-semibold">

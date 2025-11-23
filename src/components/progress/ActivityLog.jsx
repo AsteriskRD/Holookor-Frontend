@@ -7,7 +7,9 @@
 export default function ActivityLog({ rows = [] }) {
   return (
     <div>
-      <h3 className="text-lg font-semibold text-[var(--color-foreground)] mb-4">Activity Log</h3>
+      <h3 className="text-lg font-semibold text-[var(--color-foreground)] mb-4">
+        Activity Log
+      </h3>
 
       <div className="overflow-x-auto">
         <table className="w-full text-left table-auto border-collapse">
@@ -22,12 +24,21 @@ export default function ActivityLog({ rows = [] }) {
           </thead>
           <tbody>
             {rows.map((r, i) => (
-              <tr key={i} className={`${i % 2 === 0 ? 'bg-white' : 'bg-[#fbfbfb]'}`}>
-                <td className="py-3 px-3 text-sm text-[var(--color-muted-foreground)]">{r.date}</td>
+              <tr
+                key={i}
+                className={`${i % 2 === 0 ? "bg-white" : "bg-[#fbfbfb]"}`}
+              >
+                <td className="py-3 px-3 text-sm text-[var(--color-muted-foreground)]">
+                  {r.date}
+                </td>
                 <td className="py-3 px-3 text-sm">{r.subject}</td>
-                <td className="py-3 px-3 text-sm text-[var(--color-muted-foreground)]">{r.topic}</td>
+                <td className="py-3 px-3 text-sm text-[var(--color-muted-foreground)]">
+                  {r.topic}
+                </td>
                 <td className="py-3 px-3 text-sm">{r.score}</td>
-                <td className="py-3 px-3 text-sm text-[var(--color-muted-foreground)]">{r.duration}</td>
+                <td className="py-3 px-3 text-sm text-[var(--color-muted-foreground)]">
+                  {r.duration}
+                </td>
               </tr>
             ))}
           </tbody>

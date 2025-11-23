@@ -10,7 +10,7 @@ import Button from "../ui/Button";
  */
 export default function AIRecommendationCard({ recommendations, onStartQuiz }) {
   return (
-    <Card className="p-5 sm:p-6 hover:shadow-md transition-all duration-200">
+    <Card className="p-5 sm:p-6  transition-all duration-200">
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5 sm:mb-6">
         <div className="flex-1">
           <h3 className="text-base sm:text-lg font-bold mb-1.5 text-[var(--color-foreground)]">
@@ -29,7 +29,7 @@ export default function AIRecommendationCard({ recommendations, onStartQuiz }) {
         {recommendations.map((rec) => (
           <div
             key={rec.id}
-            className="p-4 sm:p-5 bg-gradient-to-br from-[var(--color-neutral-50)] to-white rounded-xl border border-[var(--color-border)] hover:shadow-sm transition-all duration-200"
+            className="p-4 sm:p-5 bg-gradient-to-br from-[var(--color-neutral-50)] to-white rounded-xl border bg-[#F3F4F6] "
           >
             <div className="flex items-start justify-between gap-3 mb-3">
               <h4 className="text-sm sm:text-base font-bold text-[var(--color-foreground)] flex-1">
@@ -46,7 +46,7 @@ export default function AIRecommendationCard({ recommendations, onStartQuiz }) {
               variant="primary"
               size="md"
               onClick={() => onStartQuiz(rec.id)}
-              className="w-full shadow-sm hover:shadow-md hover:bg-green-800 py-2"
+              className="w-full shadow-sm  hover:bg-green-800 py-2"
             >
               Start Quiz
             </Button>

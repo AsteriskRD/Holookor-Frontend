@@ -43,7 +43,7 @@ export default function SessionsList({ sessions, onJoinClass, onBookSession }) {
         <h4 className="text-sm font-medium text-[var(--color-muted-foreground)] mb-4">
           Today
         </h4>
-        <div className="space-y-10">
+        <div className="space-y-10 ">
           {sessions.map((session) => (
             <SessionListItem
               key={session.id}
