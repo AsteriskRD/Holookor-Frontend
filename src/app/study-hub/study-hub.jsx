@@ -10,6 +10,8 @@ export default function StudyHub() {
   const [activeTab, setActiveTab] = useState('assignments')
   const [filterOpen, setFilterOpen] = useState(false)
   const [selectedFilter, setSelectedFilter] = useState('All Assignments')
+  const [filter, setFilter] = useState("All Assignments")
+  const [isFilterOpen, setIsFilterOpen] = useState(false)
 
   const assignmentData = [
     {
@@ -20,8 +22,10 @@ export default function StudyHub() {
       description: 'Complete problems 1 - 20 from chapter 5. Show all working and explain your reasoning.',
       dueDate: '11th Nov 2025',
       dueStatus: 'due',
+      isOverdue: true, // For red color
       status: 'Pending',
-      statusColor: 'pending',
+      statusColor: "pending",
+      statusDot: "bg-yellow-500",
       actionButton: 'Submit',
       actionColor: 'green',
     },
@@ -37,6 +41,8 @@ export default function StudyHub() {
       statusColor: 'awaiting',
       actionButton: 'Submitted',
       actionColor: 'gray',
+      actionType: "submitted",
+      isSubmitted: true,
     },
     {
       id: 3,
@@ -46,10 +52,14 @@ export default function StudyHub() {
       description: 'Complete problems 1 - 20 from chapter 5. Show all working and explain your reasoning.',
       dueDate: '11th Nov 2025',
       dueStatus: 'submitted',
-      status: 'Completed - 92%',
-      statusColor: 'completed',
+      status: 'Graded: 92%',
+      statusColor: "text-gray-700 font-bold",
+      statusDot: "completed",
       actionButton: 'View Feedback',
       actionColor: 'blue',
+      actionType: "outline",
+      isSubmitted: true,
+      isOverdue: false,
     },
   ]
 
@@ -62,7 +72,7 @@ export default function StudyHub() {
             {/* Header */}
             <div className="mb-8 flex justify-between items-center p-4">
               <div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1">Study Hub</h1>
+              <h1 className="text-lg sm:text-2xl font-bold text-gray-900 mb-1">Study Hub</h1>
               <p className="text-gray-500 text-sm">Assignments, Quiz and Study Materials</p>
               </div>
               <div>
@@ -104,20 +114,20 @@ export default function StudyHub() {
             <div className="flex flex-wrap gap-3 mb-8">
               <button
                 onClick={() => setActiveTab('assignments')}
-                className={`px-4 py-2 rounded-full font-medium text-sm transition-all ${
+                className={`px-4 py-2 rounded-md font-medium text-sm transition-all ${
                   activeTab === 'assignments'
-                    ? 'bg-green-100 text-green-700 border-2 border-green-600'
-                    : 'bg-gray-100 text-gray-700 border-2 border-gray-200'
+                    ? 'bg-green-100 text-green-900'
+                    : 'bg-gray-100 text-gray-700'
                 }`}
               >
                 Assignments
               </button>
               <button
                 onClick={() => setActiveTab('quiz')}
-                className={`px-4 py-2 rounded-full font-medium text-sm transition-all flex items-center gap-2 ${
+                className={`px-4 py-2 rounded-md font-medium text-sm transition-all flex items-center gap-2 ${
                   activeTab === 'quiz'
                     ? 'bg-green-100 text-green-700 border-2 border-green-600'
-                    : 'bg-gray-100 text-gray-700 border-2 border-gray-200'
+                    : 'bg-gray-100 text-gray-700'
                 }`}
               >
                 Quiz
@@ -127,32 +137,33 @@ export default function StudyHub() {
               </button>
               <button
                 onClick={() => setActiveTab('resources')}
-                className={`px-4 py-2 rounded-full font-medium text-sm transition-all flex items-center gap-2 ${
+                className={`px-4 py-2 rounded-md font-medium text-sm transition-all flex items-center gap-2 ${
                   activeTab === 'resources'
                     ? 'bg-green-100 text-green-700 border-2 border-green-600'
-                    : 'bg-gray-100 text-gray-700 border-2 border-gray-200'
+                    : 'bg-gray-100 text-gray-700'
                 }`}
               >
                 Resources
-                <span className="bg-orange-400 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                  2
+                <span className="bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  3
                 </span>
               </button>
             </div>
 
             {/* Filter Section */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-              <h2 className="text-lg font-semibold text-gray-900">All Assignments (3)</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+              <h2 className="text-base font-semibold text-gray-900">All Assignments (3)</h2>
               <div className="relative">
                 <button
                   onClick={() => setFilterOpen(!filterOpen)}
-                  className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-gray-700 text-sm bg-white"
+                  className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors text-gray-700 text-sm bg-gray-100"
                 >
                   {selectedFilter}
                   <ChevronDown className="w-4 h-4" />
                 </button>
                 {filterOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg z-10">
+                  <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
                     {['All Assignments', 'Pending', 'Completed'].map((option) => (
                       <button
                         key={option}
@@ -177,11 +188,10 @@ export default function StudyHub() {
               ))}
             </div>
           </div>
-
-
-          
         </div>
+      </div>
       </div>
     </main>
   )
 }
+

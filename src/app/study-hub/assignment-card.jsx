@@ -2,26 +2,27 @@
 
 import { useState } from 'react'
 import { Clock } from 'lucide-react'
+import { Upload } from 'lucide-react'
 
 export default function AssignmentCard({ assignment }) {
   const [showResponse, setShowResponse] = useState(false)
   const [responseText, setResponseText] = useState('')
 
-  const getStatusBgColor = (statusColor) => {
-    switch (statusColor) {
+  const getStatusBgColor = (status) => {
+    switch (status) {
       case 'pending':
-        return 'bg-orange-100'
+        return 'none'
       case 'awaiting':
-        return 'bg-gray-100'
+        return 'none'
       case 'completed':
-        return 'bg-green-100'
+        return 'none'
       default:
-        return 'bg-gray-100'
+        return 'none'
     }
   }
 
-  const getStatusTextColor = (statusColor) => {
-    switch (statusColor) {
+  const getStatusTextColor = (status) => {
+    switch (status) {
       case 'pending':
         return 'text-orange-700'
       case 'awaiting':
@@ -33,23 +34,37 @@ export default function AssignmentCard({ assignment }) {
     }
   }
 
-  const getActionButtonClass = (color) => {
-    switch (color) {
-      case 'green':
-        return 'bg-green-600 hover:bg-green-700 text-white'
-      case 'gray':
-        return 'bg-gray-500 hover:bg-gray-600 text-white'
-      case 'blue':
-        return 'border-2 border-green-600 text-green-600 hover:bg-green-50'
-      default:
-        return 'bg-gray-500 hover:bg-gray-600 text-white'
+  const getStatusDot = (status) => {
+    switch (status) {
+      case "pending":
+        return "bg-yellow-500"
+      case "awaiting":
+        return "bg-gray-400"
+      case "completed":
+        return "bg-green-700"
+       default:
+        return "bg-green-700"
     }
   }
 
+  const getActionButtonClass = (status) => {
+  switch (status) {
+    case "green":
+      return "bg-green-600 hover:bg-green-700 text-white"
+    case "gray":
+      return "bg-gray-400 text-white cursor-not-allowed"
+    case "blue":
+      return "border-2 border-green-700 text-green-700 hover:bg-green-50"
+    default:
+      return "bg-gray-500 hover:bg-gray-600 text-white"
+  }
+}
+
+
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+    <div className="bg-gray-50 rounded-md p-4">
       {/* Title */}
-      <h3 className="text-base font-semibold text-gray-900 mb-3">{assignment.title}</h3>
+      <h3 className="text-base font-semibold text-gray-700 mb-3">{assignment.title}</h3>
 
       {/* Subject and Instructor */}
       <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600 mb-4">
@@ -59,39 +74,55 @@ export default function AssignmentCard({ assignment }) {
       </div>
 
       {/* Description */}
-      <p className="text-sm text-gray-700 mb-4">{assignment.description}</p>
+      <p className="bg-gray-100 rounded-md text-gray-600 text-sm p-4 mb-4">{assignment.description}</p>
 
       {/* Status and Action Row */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4 border-t border-gray-200">
-        <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-gray-200">
+        <div className="flex flex-wrap items-center gap-7">
           {/* Due Date */}
           <div className={`flex items-center gap-1 text-sm ${
             assignment.dueStatus === 'due' ? 'text-red-600' : 'text-gray-600'
           }`}>
             <Clock className="w-4 h-4" />
             <span className="font-medium">
-              {assignment.dueStatus === 'due' && '⚠️ Due:'}
+              {assignment.dueStatus === 'due' && 'Due:'}
               {assignment.dueStatus !== 'due' && 'Submitted:'}
             </span>
             <span>{assignment.dueDate}</span>
           </div>
 
           {/* Status Badge */}
-          <span className={`text-xs font-medium px-3 py-1 rounded-full ${
-            getStatusBgColor(assignment.statusColor)
-          } ${getStatusTextColor(assignment.statusColor)}`}>
-            {assignment.status}
-          </span>
+          <div className="flex items-center gap-2">
+            <span className={`w-3 h-3 rounded-full ${getStatusDot(assignment.statusColor)}`} />
+            <span 
+            className={`text-xs
+            ${getStatusBgColor(assignment.statusColor)} 
+            text-gray-500 
+          `}
+         >
+             {assignment.status.includes('Graded') ? (
+               <>
+                Graded: <span className="font-bold text-gray-700 text-base">{assignment.status.split(':')[1].trim()}</span>
+                </>
+             ) : (
+              assignment.status
+             )}
+            </span>
+          </div>
         </div>
 
         {/* Action Button */}
         <button
           onClick={() => setShowResponse(!showResponse)}
-          className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${getActionButtonClass(
+          className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2 ${getActionButtonClass(
             assignment.actionColor
           )}`}
         >
           {assignment.actionButton}
+
+          {(assignment.actionColor === "green" || assignment.actionColor === "gray") && (
+            <Upload className="w-4 h-4" />
+          )}
         </button>
       </div>
 
@@ -136,3 +167,4 @@ export default function AssignmentCard({ assignment }) {
     </div>
   )
 }
+

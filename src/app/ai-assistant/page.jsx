@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { ArrowLeft, Send, MessageCircle } from 'lucide-react'
+import { ArrowLeft, Send, Upload } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { Image } from "next"
 
 export default function AIStudyAssistant() {
   const router = useRouter()
@@ -87,10 +88,10 @@ export default function AIStudyAssistant() {
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white container mx-auto">
       {/* Header */}
-      <div className="border-b border-gray-200 px-4 sm:px-6 lg:px-8 py-6">
-        <div className="max-w-4xl mx-auto">
+      <div className="w-full px-4 sm:px-6 lg:px-4 pb-3 pt-6">
+        <div className="">
           <button
             onClick={() => router.back()}
             className="flex items-center gap-2 text-gray-700 hover:text-gray-900 mb-3 transition-colors"
@@ -103,9 +104,9 @@ export default function AIStudyAssistant() {
       </div>
 
       {/* Chat Container */}
-      <div className="px-4 sm:px-6 lg:px-8 py-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="border-4 border-blue-500 rounded-lg p-6 min-h-96 bg-gray-50 flex flex-col">
+      <div className="px-4 sm:px-6 lg:px-4 py-8">
+        <div className="">
+          <div className="border-2 border-gray-100 rounded-lg p-6 min-h-96 bg-white flex flex-col">
             {/* Messages */}
             <div className="flex-1 overflow-y-auto mb-6 space-y-4">
               {messages.map((message) => (
@@ -118,8 +119,8 @@ export default function AIStudyAssistant() {
                   <div
                     className={`max-w-xs sm:max-w-md lg:max-w-xl px-4 py-3 rounded-lg ${
                       message.type === 'user'
-                        ? 'bg-green-100 text-gray-800 border border-green-300'
-                        : 'bg-white text-gray-800 border-2 border-dashed border-blue-400'
+                        ? 'bg-green-50 text-gray-800'
+                        : 'bg-gray-100 text-gray-800'
                     }`}
                   >
                     <p className="text-sm leading-relaxed">{message.text}</p>
@@ -128,7 +129,7 @@ export default function AIStudyAssistant() {
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="bg-white text-gray-800 border-2 border-dashed border-blue-400 px-4 py-3 rounded-lg">
+                  <div className="bg-gray-300 text-gray-800 px-4 py-3 rounded-lg">
                     <div className="flex gap-2">
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100"></div>
@@ -141,8 +142,9 @@ export default function AIStudyAssistant() {
             </div>
 
             {/* Input Field */}
-            <div className="flex items-center gap-3 border-t border-gray-300 pt-4">
-              <MessageCircle className="w-5 h-5 text-gray-600 flex-shrink-0" />
+            <div className="flex items-center gap-3 border rounded-lg border-gray-300 p-4">
+              {/* <MessageCircle className="w-5 h-5 text-gray-600 flex-shrink-0" /> */}
+              <img src="/upload.svg" alt="upload icon"/>
               <input
                 type="text"
                 value={inputValue}
@@ -154,9 +156,10 @@ export default function AIStudyAssistant() {
               <button
                 onClick={handleSendMessage}
                 disabled={isLoading || inputValue.trim() === ''}
-                className="bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white p-2 rounded-lg transition-colors flex-shrink-0"
+                className="bg-green-600 hover:bg-green-700 text-white p-2 rounded-lg transition-colors flex items-center gap-2"
               >
-                <Send className="w-5 h-5" />
+                Send
+                <Upload className="w-5 h-5 flex-shrink-0 rounded-lg"/>
               </button>
             </div>
           </div>
