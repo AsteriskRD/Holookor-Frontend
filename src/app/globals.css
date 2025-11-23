@@ -7,7 +7,7 @@
 /* LIGHT THEME VARIABLES  */
 
 :root {
-  --background: #f3fff1;
+  --background: #ffffff;
   --foreground: #0a0a0a;
 
   --card: #ffffff;
@@ -179,14 +179,14 @@
     outline-offset: 2px; */
   }
   body {
-    background-color: #f3fff1;
+    background-color: #ffffff;
     color: var(--foreground);
   }
 }
 
 @layer base {
   html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-  body { background-color: #f3fff1; color: #1a202c; }
+  body { background-color: #ffffff; color: #1a202c; }
 
   /* Slightly larger base font on larger screens, smaller on phones */
   @media (max-width: 640px) {

@@ -48,7 +48,7 @@ export default function NavBar({ user, notificationCount }) {
   }, []);
 
   return (
-    <nav className="bg-[#f3fff1] border-b border-[var(--color-border)] sticky top-0 z-50">
+    <nav className="bg-[#ffffff]  sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center gap-6 py-4">
           {/* Logo */}
@@ -80,7 +80,7 @@ export default function NavBar({ user, notificationCount }) {
             </button>
 
             {/* Desktop pill nav (hidden on small screens) */}
-            <div className="hidden md:block bg-white rounded-full px-2 py-3 shadow-sm flex items-center gap-1">
+            <div className="hidden md:block bg-white rounded-full px-2 py-3 shadow-md justify-between gap-1">
               {navItems.map((item) => (
                 <Link
                   key={item.name}

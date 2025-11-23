@@ -18,7 +18,7 @@ export default function DashboardPage() {
     dailyStreak: mockQuery.dailyStreak,
   };
   
-  return <div className='bg-[#f3fff1]'>
+  return <div className='bg-[#ffffff]'>
     <Dashboard data={dashboardData} />
   </div>
 }

@@ -61,11 +61,11 @@ const TutorCard = ({ tutor }) => {
           </span>
         ))}
       </div>
-      <p className="text-[#6d717f] text-xs mb-2 min-h-[40px]">
+      {/* <p className="text-[#6d717f] text-xs mb-2 min-h-[40px]">
         {tutor.experience?.length > 120
           ? `${tutor.experience.slice(0, 120)}...`
           : tutor.experience}
-      </p>
+      </p> */}
       <div className="flex items-center gap-2 text-xs text-[#6d717f] mb-2">
         <Clock className="w-4 h-4 mr-1" />
         <span>

@@ -17,7 +17,7 @@ const Tutor = () => {
   return (
     <>
       <NavBar user={user} notificationCount={notifications.unreadCount} />
-      <main className="min-h-screen bg-[#f3fff1] py-8 px-2 sm:px-4">
+      <main className="min-h-screen bg-[#ffff] py-8 px-2 sm:px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header and Search Bar */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
