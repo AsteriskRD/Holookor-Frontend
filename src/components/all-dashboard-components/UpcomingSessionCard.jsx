@@ -2,6 +2,7 @@ import { Clock, ExternalLink } from "lucide-react";
 import Card from "../ui/Card";
 import Link from "next/link";
 import { formatTime, formatDuration } from "@/utils/formatters";
+import Button from "../ui/Button";
 
 /**
  * Upcoming Session Card component with decorative pattern
@@ -49,13 +50,13 @@ export default function UpcomingSessionCard({ session, onJoinClass }) {
           </div>
         </div>
 
-        <Link
-          href={`/live-session?sessionId=${session.id}`}
+        <Button
+         
           className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-2.5 rounded-lg hover:bg-green-700 transition-colors"
         >
           <span>Join Class</span>
-          <ExternalLink className="w-4 h-4" />
-        </Link>
+          
+        </Button>
       </div>
     </Card>
   );

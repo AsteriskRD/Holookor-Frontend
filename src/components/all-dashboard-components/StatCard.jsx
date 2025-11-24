@@ -10,24 +10,19 @@ export default function StatCard({
   iconColor = "text-[var(--color-primary-500)]",
 }) {
   return (
-    <div className="border-[var(--color-border)] p-3 mx-auto w-full sm:w-auto min-w-[5.5rem] lg:mx-3">
-      <div className="flex sm:flex-row flex-col items-start  gap-4">
-        <div className="flex-1 px-2">
-          <p className="text-lg font-semibold text-[var(--color-foreground)]">
+    <div className="border-[var(--color-border)]  sm:p-2  lg:mx-3 rounded-md">
+      <div className="flex sm:flex-row flex-col items-center sm:items-start ">
+        <div className="flex-1 text-center sm:text-left">
+          <p className=" sm:text-md md:text-xl text-center font-semibold text-[var(--color-foreground)]">
             {value}
           </p>
-          <p className="text-xs text-[var(--color-muted-foreground)] mb-1">
+          <p className="text-xs sm:text-sm text-[var(--color-muted-foreground)] mb-1">
             {label}
           </p>
         </div>
-        <div
-          className={`rounded-md bg-white/30 ${iconColor.replace(
-            "text-",
-            "bg-"
-          )}`}
-        >
-          <Icon className={`w-5 h-5 ${iconColor}`} />
-        </div>
+        <span>
+          <Icon className={` w-3 h-3 sm:w-4 sm:h-4 ${iconColor}`} />
+        </span>
       </div>
     </div>
   );

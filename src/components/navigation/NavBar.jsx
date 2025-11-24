@@ -112,7 +112,7 @@ export default function NavBar({ user, notificationCount }) {
             </button>
 
             {/* User Profile Dropdown */}
-            <div className="relative shadow-md px-6" ref={menuRef}>
+            <div className="relative md:shadow-md md:px-6" ref={menuRef}>
               <button
                 onClick={() => setShowUserMenu((prev) => !prev)}
                 className="flex items-center gap-3 p-1.5 hover:bg-[var(--muted)] rounded-lg transition-colors duration-150"
