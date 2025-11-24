@@ -49,19 +49,15 @@ export default function NavBar({ user, notificationCount }) {
 
   return (
     <nav className="bg-[#ffffff]  sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 lg:px-4">
         <div className="flex items-center gap-4 py-4">
-          {/* Logo */}
-          <div className="flex-shrink-0">
+          {/* Left: Logo + Mobile hamburger */}
+          <div className="flex items-center gap-3 flex-shrink-0">
             <Logo />
-          </div>
-
-          {/* Mobile hamburger (visible on small screens) + Centered Navigation (pill) for md+ */}
-          <div className="flex-1 flex items-center justify-end">
             <button
               aria-label="Toggle navigation"
               onClick={() => setShowMobileMenu((s) => !s)}
-              className="mr-3 p-2 rounded-md hover:bg-[var(--muted)] transition-colors duration-150 md:hidden"
+              className="p-2 rounded-md hover:bg-[var(--muted)] transition-colors duration-150 md:hidden"
             >
               <svg
                 className="w-6 h-6 text-[var(--foreground)]"
@@ -78,9 +74,11 @@ export default function NavBar({ user, notificationCount }) {
                 />
               </svg>
             </button>
+          </div>
 
-            {/* Desktop pill nav (hidden on small screens) */}
-            <div className="hidden md:block bg-white rounded-md px-2 py-4 shadow-md justify-between gap-1">
+          {/* Center: Desktop pill nav (hidden on small screens) - centered in header */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="hidden md:flex items-center bg-white rounded-md px-2 py-2 shadow-md gap-1">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -114,7 +112,7 @@ export default function NavBar({ user, notificationCount }) {
             </button>
 
             {/* User Profile Dropdown */}
-            <div className="relative" ref={menuRef}>
+            <div className="relative shadow-md px-6" ref={menuRef}>
               <button
                 onClick={() => setShowUserMenu((prev) => !prev)}
                 className="flex items-center gap-3 p-1.5 hover:bg-[var(--muted)] rounded-lg transition-colors duration-150"

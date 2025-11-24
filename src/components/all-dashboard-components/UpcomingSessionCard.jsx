@@ -1,6 +1,6 @@
 import { Clock, ExternalLink } from "lucide-react";
 import Card from "../ui/Card";
-import Button from "../ui/Button";
+import Link from "next/link";
 import { formatTime, formatDuration } from "@/utils/formatters";
 
 /**
@@ -49,13 +49,13 @@ export default function UpcomingSessionCard({ session, onJoinClass }) {
           </div>
         </div>
 
-        <Button
-          className="flex items-center gap-2 bg-green-600 text-white px-6 py-2.5 rounded-lg hover:bg-green-700 transition-colors"
-          onClick={() => onJoinClass(session.id)}
+        <Link
+          href={`/live-session?sessionId=${session.id}`}
+          className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-2.5 rounded-lg hover:bg-green-700 transition-colors"
         >
           <span>Join Class</span>
           <ExternalLink className="w-4 h-4" />
-        </Button>
+        </Link>
       </div>
     </Card>
   );

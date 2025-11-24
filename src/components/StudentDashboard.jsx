@@ -5,7 +5,6 @@ import WelcomeBanner from "./all-dashboard-components/WelcomeBanner";
 import StatsGrid from "./all-dashboard-components/StatsGrid";
 import UpcomingSessionCard from "./all-dashboard-components/UpcomingSessionCard";
 import QuickActionsGrid from "./all-dashboard-components/QuickActionsGrid";
-import DailyStreakTracker from "./all-dashboard-components/DailyStreakTracker";
 import SessionsList from "./all-dashboard-components/SessionsList";
 import PerformanceOverview from "./all-dashboard-components/PerformanceOverview";
 import AIRecommendationCard from "./all-dashboard-components/AIRecommendationCard";
@@ -78,9 +77,6 @@ export default function StudentDashboard({ data }) {
               <div>
                 <QuickActionsGrid />
               </div>
-              {/* <div>
-                <DailyStreakTracker streak={dailyStreak} />
-              </div> */}
             </div>
           </div>
         </div>
@@ -100,7 +96,6 @@ export default function StudentDashboard({ data }) {
             />
             <PerformanceOverview performances={weeklyPerformance} />
           </div>
-          
         </div>
       </main>
     </div>
