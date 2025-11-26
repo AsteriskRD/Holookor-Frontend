@@ -9,8 +9,7 @@ export default function TutorCard() {
       <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4">
         {/* Avatar - Smaller on mobile, larger on desktop */}
         <div
-          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center 
-                     text-white font-bold text-lg sm:text-xl flex-shrink-0"
+          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-white font-bold text-lg sm:text-xl flex-shrink-0"
           style={{ backgroundColor: "#394050" }}
         >
           DS

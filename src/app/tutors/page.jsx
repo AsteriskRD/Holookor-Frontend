@@ -1,10 +1,13 @@
 import Image from "next/image";
-import TutorCard from "./TutorCard";
+// import TutorCard from "./TutorCard";
 import NavBar from "@/components/navigation/NavBar";
+// import TutorCard from "@/components/tutor-card";
+import TutorCard from "@/components/tutors/TutorCard";
 import { mockStore } from "@/data/dashboardMockData";
 
 import { mockTutors } from "@/data/tutorMockData";
 import Button from "@/components/ui/Button";
+import TutorHeader from "@/components/tutors/TutorHeader";
 
 const dashboardData = {
   user: mockStore.user,
@@ -17,10 +20,10 @@ const Tutor = () => {
   return (
     <>
       <NavBar user={user} notificationCount={notifications.unreadCount} />
-      <main className="min-h-screen bg-[#ffff] py-8 px-2 sm:px-4">
+      <main className="min-h-screen bg-[#ffff] md:py-8 px-2 sm:px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header and Search Bar */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+          {/* <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-3 mb-1">
                 <Image
@@ -69,16 +72,22 @@ const Tutor = () => {
                 Search
               </Button>
             </form>
-          </div>
+          </div> */}
+          <TutorHeader
+            title={"Find your perfect tutor"}
+            info={"Browse verified educators and book your next session."}
+            option={true}
+          />
 
           {/* Results Section */}
           <div className="bg-white border border-[#f3f4f6] rounded-2xl p-6">
             <h2 className="text-[#394050] text-lg md:text-xl font-semibold mb-4">
               Results ({mockTutors?.length ?? 0})
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto justify-items-center">
               {mockTutors?.map((tutor, index) => (
-                <TutorCard tutor={tutor} key={index} />
+                <TutorCard key={index} tutor={tutor} />
+                // <TutorCard tutor={tutor} key={index} />
               ))}
             </div>
           </div>
