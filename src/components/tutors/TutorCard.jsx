@@ -64,12 +64,14 @@ const TutorCard = ({ tutor }) => {
                 ))}
             </div>
             <div className="flex sm:max-w-[492px] md:flex-col lg:flex-row sm:items-center sm:justify-between gap-2 lg:gap-6 pt-2">
-                <Button className="w-full border border-[#16a34a] text-[#329321] bg-white hover:bg-[#167406] hover:text-[#fff]  font-semibold px-4 py-2 rounded-lg transition duration-300" size="sm">
+                {/* <Button className="w-full border border-[#16a34a] text-[#329321] bg-white hover:bg-[#167406] hover:text-[#fff]  font-semibold px-4 py-2 rounded-lg transition duration-300" size="sm">
                     View Profile
-                </Button>
-                <Button className="w-full border border-[#16a34a] bg-[#22c55e] hover:bg-[#156407] text-white font-semibold px-4 py-2 rounded-lg transition duration-300" size="sm">
+                </Button> */}
+                <button className="w-full border border-[#16a34a] text-[#329321] bg-white hover:bg-[#0b7030] hover:text-[#fff]  font-semibold px-4 py-2 rounded-lg transition duration-300">View Profile</button>
+                {/* <Button className="w-full border border-[#16a34a] bg-[#22c55e] hover:bg-[#156407] text-white font-semibold px-4 py-2 rounded-lg transition duration-300" size="sm">
                     Book Session
-                </Button>
+                </Button> */}
+                <button className="w-full border border-[#16a34a] bg-[#0b7030] hover:bg-[#105305] text-white font-semibold px-4 py-2 rounded-lg transition duration-300">Book Session</button>
             </div>
         </div>
     )
