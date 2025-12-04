@@ -1,4 +1,4 @@
-import { CheckCircle, Star } from "lucide-react"
+import { CircleSmall, Star } from "lucide-react"
 
 export default function TutorCard() {
   return (
@@ -23,9 +23,9 @@ export default function TutorCard() {
               Dr. Sarah Johnson
             </h3>
             <div className="flex items-center gap-1">
-              <CheckCircle size={16} style={{ color: "#3da755" }} />
+              <CircleSmall size={16} style={{ color: "#3da755" }} />
               <span className="text-xs font-semibold" style={{ color: "#3da755" }}>
-                Verified
+                Available
               </span>
             </div>
           </div>

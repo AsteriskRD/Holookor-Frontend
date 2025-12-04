@@ -32,7 +32,7 @@ export default function SessionsList({ sessions, onJoinClass, onBookSession }) {
         <Button
           variant="outline"
           onClick={onBookSession}
-          className="flex items-center gap-2 bg-[#E5E4E2]  hover:text-white hover:bg-[#0c5b29] p-3"
+          className="flex items-center gap-2 bg-[#E5E4E2]  hover:text-white hover:bg-green-800 p-3"
         >
           <Calendar className="w-4 h-4" />
           Book Session
@@ -43,7 +43,7 @@ export default function SessionsList({ sessions, onJoinClass, onBookSession }) {
         <h4 className="text-sm font-medium text-[var(--color-muted-foreground)] mb-4">
           Today
         </h4>
-        <div className="space-y-10">
+        <div className="space-y-10 ">
           {sessions.map((session) => (
             <SessionListItem
               key={session.id}

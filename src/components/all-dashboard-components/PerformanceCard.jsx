@@ -32,7 +32,6 @@ export default function PerformanceCard({ performance }) {
       <ProgressBar
         value={performance.percentage}
         max={100}
-        color={colorMap[performance.subject] || "primary"}
         className="h-2.5 sm:h-3"
       />
     </div>

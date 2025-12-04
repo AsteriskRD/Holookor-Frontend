@@ -4,94 +4,86 @@ import { Clock } from "lucide-react";
 import Image from "next/image";
 
 const TutorCard = ({ tutor }) => {
-    return (
-        <div className="flex flex-col bg-white gap-6 items-center border border-[#f3f4f6] rounded-xl p-3">
-            <div className="mt-4 md:mt-2 flex w-full px-6 ml-4 items-center justify-around gap-2 md:gap-4 py-2">
+  return (
+    <div className="w-full bg-white border border-[#e5e7ea] rounded-xl shadow-sm p-5 flex flex-col gap-3 transition hover:shadow-md">
+      <div className="flex items-center gap-4 mb-2">
+        <Image
+          src={tutor.tutorImg}
+          className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-[#d1d5db] object-cover bg-gray-100"
+          width={56}
+          height={56}
+          alt="Tutor profile image"
+        />
+        <div className="flex-1">
+          <div className="flex items-center gap-2">
+            <h2 className="text-lg font-semibold text-[#222] truncate">
+              {tutor.tutorNames}
+            </h2>
+            {tutor.isVerified && (
+              <span className="flex items-center gap-1 text-green-600 text-xs font-medium">
                 <Image
-                    src={tutor.tutorImg}
-                    className="w-14 h-14 md:w-[72px] md:h-[72px] rounded-full border border-black"
-                    width={36}
-                    height={36}
-                    alt="Tutor profile image"
+                  src="/verified.png"
+                  alt="Verified"
+                  width={16}
+                  height={16}
+                  className="w-4 h-4"
                 />
-                <div className="flex flex-col items-center gap-2">
-                    <div className="flex gap-4 w-full">
-                        <h2 className="text-xl md:text-2xl capitalize font-bold tracking-wider whitespace-nowrap">
-                            {tutor.tutorNames}
-                        </h2>
-                        <div className="flex gap-2 items-center text-[#43b75d]">
-                            <Image
-                                src={"/verified.png"}
-                                alt="Verified icon"
-                                width={18}
-                                height={8}
-                                className="w-5 h-5 md:w-7 md:h-7"
-                            />
-                            <p className="text-lg md:text-xl">
-                                {tutor.isVerified ? "Verified" : "N/A"}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex gap-4">
-                        <h2 className="bg-[#131927] text-white tracking-wider capitalize text-lg md:text-xl py-1 px-2 rounded-lg ">
-                            {tutor.field}
-                        </h2>
-                        <div className="flex items-center gap-2 ml-2 whitespace-nowrap">
-                            <Image
-                                src={"/star.png"}
-                                alt="Star"
-                                width={8}
-                                height={8}
-                                className="w-5 h-5 md:w-7 md:h-7"
-                            />
-                            <p className="text-xl md:text-2xl">
-                                {tutor.rating} ({tutor.voteCount})
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="flex items-center flex-wrap gap-2 md:gap-4">
-                {tutor.courses.map((course, index) => (
-                    <h3
-                        className="text-[#030213] text-lg md:text-xl capitalize bg-[#f3f4f6] p-2 rounded-lg"
-                        key={index}
-                    >
-                        {course}
-                    </h3>
-                ))}
-            </div>
-            <p className="text-[#6d717f] mx-2 sm:max-w-[420px] md:max-w-[480px] text-lg md:text-xl max-w-5/6 tracking-wide">
-                {tutor.experience?.split("").length > 80
-                    ? `${tutor.experience.slice(0, 80)}...`
-                    : tutor.experience}
-            </p>
-            <div className="flex gap-6 text-lg md:text-xl flex-col w-full pr-4">
-                <div className="flex items-center justify-between px-6">
-                    <div className="flex gap-1 items-center text-[var(--color-muted-foreground)]">
-                        <Clock className="w-5 md:w-6 h-5 md:h-6" />
-
-                        <p className=" tracking-wide">
-                            {tutor.availability}, {tutor.timeHr}
-                        </p>
-                    </div>
-
-                    <h2 className="text-[#329321]">${tutor.rate}/hr</h2>
-                </div>
-            </div>
-
-            <div className="flex w-full flex-col gap-2 md:gap-8 md:flex-row items-center pb-2">
-                {/* <Button text={'View Profile'} isPrimary={false} />
-                    <Button text={'Book Session'} isPrimary={true} /> */}
-                <Button className="flex w-full items-center gap-2 bg-white text-gray-400 border-2 border-[#16a34a] px-6 py-2.5 rounded-lg hover:bg-green-700 hover:text-white transition-colors ">
-                    <span>View Profile</span>
-                </Button>
-                <Button className="flex w-full items-center gap-2 bg-[var(--color-primary-600)] text-white px-6 py-2.5 rounded-lg hover:bg-green-700 transition-colors border-2 border-[#16a34a]">
-                    <span>Book Session</span>
-                </Button>
-            </div>
+                Verified
+              </span>
+            )}
+          </div>
+          <div className="flex items-center gap-2 mt-1">
+            <span className="bg-[#131927] text-white text-xs px-2 py-1 rounded font-medium">
+              {tutor.field}
+            </span>
+            <span className="flex items-center gap-1 text-yellow-600 text-xs font-medium">
+              <Image
+                src="/star.png"
+                alt="Star"
+                width={14}
+                height={14}
+                className="w-4 h-4"
+              />
+              {tutor.rating}{" "}
+              <span className="text-[#6d717f]">({tutor.voteCount})</span>
+            </span>
+          </div>
         </div>
-    );
+      </div>
+      <div className="flex flex-wrap gap-2 mb-1">
+        {tutor.courses.map((course, index) => (
+          <span
+            key={index}
+            className="bg-[#f3f4f6] text-[#222] text-xs px-2 py-1 rounded-lg border border-[#e5e7ea]"
+          >
+            {course}
+          </span>
+        ))}
+      </div>
+      {/* <p className="text-[#6d717f] text-xs mb-2 min-h-[40px]">
+        {tutor.experience?.length > 120
+          ? `${tutor.experience.slice(0, 120)}...`
+          : tutor.experience}
+      </p> */}
+      <div className="flex items-center gap-2 text-xs text-[#6d717f] mb-2">
+        <Clock className="w-4 h-4 mr-1" />
+        <span>
+          {tutor.availability}, {tutor.timeHr}
+        </span>
+      </div>
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-2">
+        <span className="text-[#22c55e] font-bold text-base sm:mr-3">
+          ${tutor.rate}/hr
+        </span>
+        <Button className="w-full sm:w-auto border border-[#16a34a] !text-black bg-white hover:bg-[#22c55e] hover:text-white font-semibold px-4 py-2 rounded-lg transition">
+          View Profile
+        </Button>
+        <Button className="w-full sm:w-auto bg-[#22c55e] hover:bg-[#16a34a] text-white font-semibold px-4 py-2 rounded-lg transition">
+          Book Session
+        </Button>
+      </div>
+    </div>
+  );
 };
 
 export default TutorCard;

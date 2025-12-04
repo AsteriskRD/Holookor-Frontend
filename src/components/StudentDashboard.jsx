@@ -1,14 +1,13 @@
 "use client";
 
 import NavBar from "./navigation/NavBar";
-import WelcomeBanner from "./dashboard/WelcomeBanner";
-import StatsGrid from "./dashboard/StatsGrid";
-import UpcomingSessionCard from "./dashboard/UpcomingSessionCard";
-import QuickActionsGrid from "./dashboard/QuickActionsGrid";
-import DailyStreakTracker from "./dashboard/DailyStreakTracker";
-import SessionsList from "./dashboard/SessionsList";
-import PerformanceOverview from "./dashboard/PerformanceOverview";
-import AIRecommendationCard from "./dashboard/AIRecommendationCard";
+import WelcomeBanner from "./all-dashboard-components/WelcomeBanner";
+import StatsGrid from "./all-dashboard-components/StatsGrid";
+import UpcomingSessionCard from "./all-dashboard-components/UpcomingSessionCard";
+import QuickActionsGrid from "./all-dashboard-components/QuickActionsGrid";
+import SessionsList from "./all-dashboard-components/SessionsList";
+import PerformanceOverview from "./all-dashboard-components/PerformanceOverview";
+import AIRecommendationCard from "./all-dashboard-components/AIRecommendationCard";
 
 /**
  * Main Dashboard component
@@ -19,7 +18,7 @@ import AIRecommendationCard from "./dashboard/AIRecommendationCard";
  * - Implement error handling and loading states
  * - Add real-time updates for notifications and sessions
  */
-export default function Dashboard({ data }) {
+export default function StudentDashboard({ data }) {
   const {
     user,
     notifications,
@@ -50,7 +49,7 @@ export default function Dashboard({ data }) {
   };
 
   return (
-    <div className="min-h-screen  ">
+    <div className="min-h-screen">
       <NavBar user={user} notificationCount={notifications.unreadCount} />
 
       <main className="max-w-screen-xl mx-auto px-2 sm:px-3 lg:px-4 py-6">
@@ -66,40 +65,36 @@ export default function Dashboard({ data }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mt-8">
-          <div className="lg:col-span-6">
+        <div className="grid grid-cols-1  lg:grid-cols-12 gap-10 mt-8">
+          <div className="lg:col-span-6 border #f3f4f6">
             <UpcomingSessionCard
               session={upcomingSession}
               onJoinClass={handleJoinClass}
             />
           </div>
           <div className="lg:col-span-6">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 border #f3f4f6">
               <div>
-                
                 <QuickActionsGrid />
-              </div>
-              <div>
-                <DailyStreakTracker streak={dailyStreak} />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mt-8">
-          <div className="lg:col-span-6">
+        <div className="grid  grid-cols-1 lg:grid-cols-12 gap-10 mt-8">
+          <div className="lg:col-span-6 border #f3f4f6">
             <SessionsList
               sessions={todaySessions}
               onJoinClass={handleJoinClass}
               onBookSession={handleBookSession}
             />
           </div>
-          <div className="lg:col-span-6 space-y-6">
-            <PerformanceOverview performances={weeklyPerformance} />
+          <div className="lg:col-span-6 space-y-6 border #f3f4f6">
             <AIRecommendationCard
               recommendations={aiRecommendations}
               onStartQuiz={handleStartQuiz}
             />
+            <PerformanceOverview performances={weeklyPerformance} />
           </div>
         </div>
       </main>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Bell, ChevronDown } from "lucide-react";
 import Logo from "../Logo";
 import Avatar from "../ui/Avatar";
@@ -16,7 +16,7 @@ import { usePathname } from "next/navigation";
  */
 
 const navItems = [
-  { name: "Dashboard", href: "/" },
+  { name: "Dashboard", href: "/dashboard" },
   { name: "Sessions", href: "/sessions" },
   { name: "Tutors", href: "/tutors" },
   { name: "Study Hub", href: "/study-hub" },
@@ -28,6 +28,7 @@ export default function NavBar({ user, notificationCount }) {
   const [activeTab, setActiveTab] = useState("Dashboard");
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const menuRef = useRef(null); // 👈 Ref for detecting outside clicks
 
   // Automatically update active tab when route changes
   useEffect(() => {
@@ -35,24 +36,55 @@ export default function NavBar({ user, notificationCount }) {
     if (current) setActiveTab(current.name);
   }, [pathname]);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowUserMenu(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <nav className="bg-[#f3fff1] border-b border-[var(--color-border)] sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center gap-6 py-4">
-          {/* Logo */}
-          <div className="flex-shrink-0">
+    <nav className="bg-[#ffffff]  sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 lg:px-4">
+        <div className="flex items-center gap-4 py-4">
+          {/* Left: Logo + Mobile hamburger */}
+          <div className="flex items-center gap-3 flex-shrink-0">
             <Logo />
+            <button
+              aria-label="Toggle navigation"
+              onClick={() => setShowMobileMenu((s) => !s)}
+              className="p-2 rounded-md hover:bg-[var(--muted)] transition-colors duration-150 md:hidden"
+            >
+              <svg
+                className="w-6 h-6 text-[var(--foreground)]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
           </div>
 
-          {/* Centered Navigation (pill) */}
-          <div className="flex-1 flex justify-center">
-            <div className="bg-white rounded-full px-2 py-1 shadow-sm flex items-center gap-1">
+          {/* Center: Desktop pill nav (hidden on small screens) - centered in header */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="hidden md:flex items-center bg-white rounded-md px-2 py-2 shadow-md gap-1">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setActiveTab(item.name)}
-                  className={`text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ${
+                  className={`text-sm font-medium px-4 py-2 rounded-sm transition-colors duration-150 ${
                     activeTab === item.name
                       ? "bg-[#0c5b29] text-white shadow"
                       : "text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
@@ -80,21 +112,29 @@ export default function NavBar({ user, notificationCount }) {
             </button>
 
             {/* User Profile Dropdown */}
-            <div className="relative">
+            <div className="relative md:shadow-md md:px-6" ref={menuRef}>
               <button
-                onClick={() => setShowUserMenu(!showUserMenu)}
+                onClick={() => setShowUserMenu((prev) => !prev)}
                 className="flex items-center gap-3 p-1.5 hover:bg-[var(--muted)] rounded-lg transition-colors duration-150"
               >
-                <Avatar src={user?.avatarUrl} alt={user?.fullName || 'User'} size="md" />
+                <Avatar
+                  src={user?.avatarUrl}
+                  alt={user?.fullName || "User"}
+                  size="md"
+                />
                 <div className="hidden md:block text-left">
                   <div className="text-sm font-medium text-[var(--foreground)] leading-tight">
-                    {user?.fullName || "Loading..."}
+                    {user?.fullName || "no-user"}
                   </div>
                   <div className="text-xs text-[var(--muted-foreground)] leading-tight">
-                    {user?.email|| " "}
+                    {user?.email || "no-email "}
                   </div>
                 </div>
-                <ChevronDown className="w-4 h-4 text-[var(--muted-foreground)] hidden sm:block" />
+                <ChevronDown
+                  className={`w-4 h-4 text-[var(--muted-foreground)] hidden sm:block transition-transform duration-200 ${
+                    showUserMenu ? "rotate-180" : ""
+                  }`}
+                />
               </button>
 
               {showUserMenu && (
@@ -106,9 +146,11 @@ export default function NavBar({ user, notificationCount }) {
                     Settings
                   </button>
                   <div className="border-t border-[var(--border)]  my-1"></div>
-                  <button className="w-full px-4 py-2 text-left text-white text-sm bg-[#FF0000] hover:bg-[#8B0000] transition-colors duration-150 text-[var(--accent)]">
-                    Log out
-                  </button>
+                  <Link href="/">
+                    <button className="w-full px-4 py-2 text-left text-white text-sm bg-[#FF0000] hover:bg-[#8B0000] transition-colors duration-150 text-[var(--accent)]">
+                      Log out
+                    </button>
+                  </Link>
                 </div>
               )}
             </div>
@@ -119,22 +161,26 @@ export default function NavBar({ user, notificationCount }) {
       {/* Mobile menu overlay */}
       {showMobileMenu && (
         <div className="md:hidden bg-[var(--background)] border-t border-[var(--color-border)]">
-          <div className="px-4 py-3 space-y-1">
+          <div className=" min-h-screen backdrop-blur px-4 py-3 space-y-1">
             {navItems.map((item) => (
-              <button
-                key={item}
+              <Link
+                key={item.name}
+                href={item.href}
                 onClick={() => {
-                  setActiveTab(item);
+                  setActiveTab(item.name);
                   setShowMobileMenu(false);
                 }}
-                className={`w-full text-left px-3 py-2 rounded transition-colors duration-150 ${
-                  activeTab === item
-                    ? "bg-[var(--primary)] text-white"
-                    : "text-[var(--color-muted-foreground)] hover:bg-[var(--muted)]"
-                }`}
               >
-                {item}
-              </button>
+                <button
+                  className={`block w-full text-left px-3 py-2 rounded transition-colors duration-150 ${
+                    activeTab === item.name
+                      ? "bg-[var(--primary)] text-white"
+                      : "text-[var(--color-muted-foreground)] hover:bg-[var(--muted)]"
+                  }`}
+                >
+                  {item.name}
+                </button>
+              </Link>
             ))}
           </div>
         </div>

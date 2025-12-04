@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { ArrowLeft, Send, Upload } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { Image } from "next"
+import NavBar from '@/components/navigation/NavBar'
 
 export default function AIStudyAssistant() {
   const router = useRouter()
@@ -89,7 +90,7 @@ export default function AIStudyAssistant() {
 
   return (
     <main className="min-h-screen bg-white container mx-auto">
-      {/* Header */}
+     <NavBar />
       <div className="w-full px-4 sm:px-6 lg:px-4 pb-3 pt-6">
         <div className="">
           <button

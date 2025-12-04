@@ -22,7 +22,7 @@ export default function PerformanceOverview({ performances }) {
       
       <div>
         <h4 className="text-sm font-semibold text-[var(--color-muted-foreground)] mb-4 px-1">This Week</h4>
-        <div className="space-y-4 sm:space-y-5">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
           {performances.map((performance) => (
             <PerformanceCard key={performance.subject} performance={performance} />
           ))}
