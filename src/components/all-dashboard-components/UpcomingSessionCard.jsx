@@ -2,7 +2,7 @@ import { Clock, ExternalLink } from "lucide-react";
 import Card from "../ui/Card";
 import Link from "next/link";
 import { formatTime, formatDuration } from "@/utils/formatters";
-import Button from "../ui/Button";
+import Button from "../ui/button";
 
 /**
  * Upcoming Session Card component with decorative pattern

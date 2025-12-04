@@ -3,7 +3,7 @@ import TutorCard from "./TutorCard";
 import NavBar from "@/components/navigation/NavBar";
 import { mockStore } from "@/data/dashboardMockData";
 import { mockTutors } from "@/data/tutorMockData";
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/button";
 
 const dashboardData = {
     user: mockStore.user,

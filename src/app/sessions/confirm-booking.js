@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { FaPaypal } from "react-icons/fa";
-import Button from "../../components/ui/Button";
+import Button from "../../components/ui/button";
 import PaymentSuccessfulModal from "../../components/payment-successful-modal";
 import LiveSession from "./live-session";
 

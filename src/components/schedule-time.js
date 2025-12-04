@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Clock, X, Plus, ChevronDown } from "lucide-react";
-import Button from "./ui/Button";
+import Button from "./ui/button";
 
 const timeSlots = [
   "08:00",
