@@ -1,5 +1,5 @@
 import { Users, Book, FileText, Award } from "lucide-react";
-import Button from "../ui/Button";
+import Button from "../ui/button";
 
 /**
  * Quick Actions Grid component

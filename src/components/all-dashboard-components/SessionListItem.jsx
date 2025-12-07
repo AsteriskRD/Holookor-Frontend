@@ -1,5 +1,5 @@
 import { Clock, ExternalLink } from "lucide-react";
-import Button from "../ui/Button";
+import Button from "../ui/button";
 import { formatTime, formatDuration } from "@/utils/formatters";
 
 /**

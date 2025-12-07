@@ -2,7 +2,7 @@ import { Clock, ExternalLink } from "lucide-react";
 import Card from "../ui/Card";
 import Link from "next/link";
 import { formatTime, formatDuration } from "@/utils/formatters";
-import Button from "../ui/Button";
+import Button from "../ui/button";
 
 /**
  * Upcoming Session Card component with decorative pattern
@@ -10,7 +10,7 @@ import Button from "../ui/Button";
  * TODO: API Integration - Handle Join Class action via POST /api/sessions/:id/join
  */
 export default function UpcomingSessionCard({ session, onJoinClass }) {
-  if (!session) return null;
+    if (!session) return null;
 
   return (
     <Card className="p-6 bg-[url('/upcoming_session.jpg')] bg-cover ">
@@ -41,14 +41,6 @@ export default function UpcomingSessionCard({ session, onJoinClass }) {
                 {formatTime(session.scheduledTime)}
               </span>
             </div>
-            <div className="flex items-center gap-2 bg-white bg-opacity-50 px-4 py-2 rounded-lg">
-              <Clock className="w-4 h-4" />
-              <span className="text-sm font-medium">
-                {formatDuration(session.duration)}
-              </span>
-            </div>
-          </div>
-        </div>
 
         <Button
          
@@ -57,6 +49,17 @@ export default function UpcomingSessionCard({ session, onJoinClass }) {
           <span>Join Class</span>
           
         </Button>
+          </div>
+
+          <div className="flex gap-4 text-green-700">
+            <div className="flex items-center gap-2 bg-white bg-opacity-50 px-4 py-2 rounded-lg">
+              <Clock className="w-4 h-4" />
+              <span className="text-sm font-medium">
+                {formatTime(session.scheduledTime)}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </Card>
   );

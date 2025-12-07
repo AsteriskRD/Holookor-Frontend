@@ -6,7 +6,7 @@ import TutorCard from "../../components/tutor-card";
 import ScheduleTime from "../../components/schedule-time";
 import SessionDetail from "./session-detail";
 import ConfirmBooking from "./confirm-booking";
-import Button from "../../components/ui/Button";
+import Button from "../../components/ui/button";
 import NavBar from "@/components/navigation/NavBar";
 
 export default function SessionPage() {

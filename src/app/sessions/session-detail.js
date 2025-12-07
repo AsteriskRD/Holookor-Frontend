@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Clock, BookOpen, ChevronDown, ArrowRight } from "lucide-react";
-import Button from "../../components/ui/Button";
+import Button from "../../components/ui/button";
 import CancelBookingModal from "./cancel-booking-modal";
 
 const sessionLengths = ["30 mins", "1 Hour", "1.5 Hours", "2 Hours"];
