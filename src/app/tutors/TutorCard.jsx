@@ -7,12 +7,12 @@ import Image from "next/image";
 const TutorCard = ({ tutor }) => {
   return (
     <div className="w-full bg-white border border-[#e5e7ea] rounded-xl shadow-sm p-5 flex flex-col gap-3 transition hover:shadow-md">
-      <div className="flex items-center gap-4 mb-2">
+      <div className="flex items-center md:gap-6 mb-2">
         <Image
           src={tutor.tutorImg}
           className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-[#d1d5db] object-cover bg-gray-100"
-          width={56}
-          height={56}
+          width={40}
+          height={40}
           alt="Tutor profile image"
         />
         <div className="flex-1">
@@ -89,6 +89,4 @@ const TutorCard = ({ tutor }) => {
 
 export default TutorCard;
 
-// primary: 'bg-[var(--color-primary-600)] text-white border-2 border-[#16a34a] hover:bg-[var(--color-primary-700)] active:bg-[var(--color-primary-800)] focus:ring-[var(--color-primary-500)]',
-//     secondary: 'bg-white text-[#16a34a] border-2 border-[#16a34a] hover:bg-[var(--color-neutral-200)] active:bg-[var(--color-neutral-300)] focus:ring-[var(--color-neutral-400)] hover:text-white',
-//     variant = "secondary"
+
