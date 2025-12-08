@@ -59,7 +59,7 @@ export default function SigninPage() {
   return (
     <main className="min-h-screen bg-white relative overflow-hidden px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex items-center justify-center">
       <AuthBackground />
-      <div className="w-full max-w-md relative z-10">
+      <div className="w-full max-w-md relative z-10 bg-white rounded-2xl shadow-md p-8 sm:p-10">
         {/* Back Button */}
         <Link href="/" className="inline-block mb-6">
           <button className="flex items-center gap-2 text-green-600 hover:text-green-700 text-sm sm:text-base font-medium">

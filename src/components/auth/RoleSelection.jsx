@@ -13,7 +13,7 @@ export default function RoleSelection({ onSelectRole }) {
   return (
     <div className="min-h-screen bg-white relative overflow-hidden px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex items-center justify-center">
       <AuthBackground />
-      <div className="w-full max-w-md relative z-10">
+      <div className="w-full max-w-md relative z-10 bg-white rounded-2xl shadow-md p-8 sm:p-10">
         {/* Logo */}
         <div className="mb-8 text-center">
           <img

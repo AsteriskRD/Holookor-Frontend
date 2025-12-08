@@ -150,9 +150,8 @@ export default function LandingPage() {
                 Personalized Learning Journey
               </p>
             </div>
-              </motion.div>
-          </div>
-        
+          </motion.div>
+        </div>
       </section>
 
       {/* Why Holookor Section */}
@@ -214,14 +213,13 @@ export default function LandingPage() {
               className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
             >
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <Smartphone className="w-6 h-6 text-green-600" />
               </div>
-              </motion.div>
               <h3 className="text-xl font-semibold mb-3">
                 Flexible Scheduling
               </h3>
@@ -229,11 +227,10 @@ export default function LandingPage() {
                 Learn at your own pace. Book sessions whenever it works best for
                 you, with options for one-time sessions or recurring lessons.
               </p>
-            </div>
+            </motion.div>
           </div>
-       
+        </div>
       </section>
-       
 
       {/* Get Started Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
@@ -452,8 +449,8 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "Holookor helped me improve my math grades by 20 points in just
-                  3 months. The tutors are patient and knowledgeable!"
+                  "Holookor helped me improve my math grades by 20 points in
+                  just 3 months. The tutors are patient and knowledgeable!"
                 </p>
                 <div>
                   <p className="font-semibold">Sarah J.</p>
@@ -472,8 +469,8 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "As a parent, I love how transparent the platform is. I can see
-                  my son's progress and communicate with his tutor easily."
+                  "As a parent, I love how transparent the platform is. I can
+                  see my son's progress and communicate with his tutor easily."
                 </p>
                 <div>
                   <p className="font-semibold">Michael B.</p>
@@ -532,8 +529,8 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "The variety of tutors available is amazing. I switched between
-                  three different tutors and found my perfect match!"
+                  "The variety of tutors available is amazing. I switched
+                  between three different tutors and found my perfect match!"
                 </p>
                 <div>
                   <p className="font-semibold">Lisa M.</p>
@@ -612,8 +609,8 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "Holookor helped me improve my math grades by 20 points in just
-                  3 months. The tutors are patient and knowledgeable!"
+                  "Holookor helped me improve my math grades by 20 points in
+                  just 3 months. The tutors are patient and knowledgeable!"
                 </p>
                 <div>
                   <p className="font-semibold">Sarah J.</p>
@@ -775,14 +772,13 @@ export default function LandingPage() {
             <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
             <div className="space-y-4">
               <p className="text-gray-600">
-                <strong>Email:</strong> support@holookor.com
+                <strong>Email:</strong> teamspectrum@holookor.com
               </p>
               <p className="text-gray-600">
-                <strong>Phone:</strong> +1 (555) 123-4567
+                <strong>Phone:</strong> +234 (90) 123-4567
               </p>
               <p className="text-gray-600">
-                <strong>Address:</strong> 123 Learning Street, Education City,
-                EC 12345
+                <strong>Address:</strong> Lagos, Nigeria.
               </p>
               <div className="flex gap-4 mt-6">
                 <a
@@ -892,9 +888,9 @@ export default function LandingPage() {
             <div>
               <h4 className="font-semibold mb-4">Contact Us</h4>
               <p className="text-sm text-gray-400">
-                support@holookor.com
+                teamspectrum@holookor.com
                 <br />
-                +1 (555) 123-4567
+                +234 (90) 123-4567
               </p>
             </div>
           </div>
