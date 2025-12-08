@@ -4,7 +4,7 @@
  */
 export default function AuthBackground() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className=" min-h-screen absolute inset-0 overflow-hidden pointer-events-none">
       {/* Background Image - Educational pattern */}
       <img
         src="/auth-background.png"
@@ -12,8 +12,7 @@ export default function AuthBackground() {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* White overlay/shadow effect over the pattern */}
-      <div className="flex bg-white shadow-md  "></div>
+    
     </div>
   );
 }

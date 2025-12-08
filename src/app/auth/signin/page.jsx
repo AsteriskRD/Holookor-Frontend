@@ -72,7 +72,7 @@ export default function SigninPage() {
           <img
             src="/Logo.png"
             alt="HOLOOKOR"
-            className="w-20 h-8 sm:w-28 sm:h-10 mx-auto"
+            className="w-auto h-8 sm:w-28 sm:h-10 mx-auto"
           />
         </div>
 

@@ -12,6 +12,8 @@ import StudyPreferences from "@/components/auth/StudyPreferences";
 import NotificationSettings from "@/components/auth/NotificationSettings";
 import WelcomeChild from "@/components/auth/WelcomeChild";
 import AuthBackground from "@/components/auth/AuthBackground";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 /**
  * Signup Page - Main orchestrator for the signup flow
@@ -197,19 +199,27 @@ export default function SignupPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white relative overflow-hidden px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex items-center justify-center">
+    <main className="min-h-screen  px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex items-center justify-center">
       <AuthBackground />
       <div className="w-full max-w-md relative z-10 bg-white rounded-2xl shadow-md p-8 sm:p-10">
+         
         {/* Logo */}
-        {step !== "role" && (
+        {step !== "role" ? (
+          <>
+          
           <div className="mb-8 text-center">
             <img
               src="/Logo.png"
               alt="HOLOOKOR"
-              className="w-20 h-8 sm:w-28 sm:h-10 mx-auto"
+              className="w-auto h-8 sm:w-28 sm:h-10 mx-auto"
             />
           </div>
-        )}
+          </>
+        ): <Link href="/" className="inline-block mb-6">
+          <button className="flex items-center gap-2 text-green-600 hover:text-green-700 text-sm sm:text-base font-medium">
+            <ArrowLeft className="w-4 h-4" /> Back
+          </button>
+        </Link>}
 
         {/* Step Indicator */}
         {step !== "role" && step !== "success" && step !== "welcome" && (
