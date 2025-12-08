@@ -12,6 +12,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function LandingPage() {
   const [email, setEmail] = useState("");
@@ -89,16 +90,35 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.h1
+              className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
               Unlock Your Potential with Expert Tutors
-            </h1>
-            <p className="text-lg text-gray-600 mb-8">
+            </motion.h1>
+            <motion.p
+              className="text-lg text-gray-600 mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
               Get personalized learning sessions from verified tutors. Achieve
               your academic goals faster with flexible scheduling and real-time
               progress tracking.
-            </p>
-            <div className="flex gap-4 flex-col sm:flex-row">
+            </motion.p>
+            <motion.div
+              className="flex gap-4 flex-col sm:flex-row"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+            >
               <Link
                 href="/auth/signup"
                 className="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium flex items-center justify-center gap-2"
@@ -111,28 +131,52 @@ export default function LandingPage() {
               >
                 Learn More
               </Link>
-            </div>
-          </div>
-          <div className="relative h-96 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl flex items-center justify-center">
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className="relative h-96 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl flex items-center justify-center"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <div className="text-center">
-              <GraduationCap className="w-32 h-32 text-green-600 mx-auto mb-4 opacity-80" />
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <GraduationCap className="w-32 h-32 text-green-600 mx-auto mb-4 opacity-80" />
+              </motion.div>
               <p className="text-gray-600 font-medium">
                 Personalized Learning Journey
               </p>
             </div>
+              </motion.div>
           </div>
-        </div>
+        
       </section>
 
       {/* Why Holookor Section */}
       <section id="features" className="bg-gray-50 py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">
-            Why Smart Learning Hub?
-          </h2>
+          <motion.h2
+            className="text-3xl sm:text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Why Holookor
+          </motion.h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* Feature 1 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+            <motion.div
+              className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+            >
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <CheckCircle className="w-6 h-6 text-green-600" />
               </div>
@@ -142,10 +186,17 @@ export default function LandingPage() {
                 profiles, check ratings, and find the perfect fit for your
                 learning needs.
               </p>
-            </div>
+            </motion.div>
 
             {/* Feature 2 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+            <motion.div
+              className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+            >
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-green-600" />
               </div>
@@ -156,13 +207,21 @@ export default function LandingPage() {
                 Lessons tailored to your pace and goals. From test prep to
                 subject mastery, get customized guidance every step of the way.
               </p>
-            </div>
+            </motion.div>
 
             {/* Feature 3 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+            <motion.div
+              className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+            >
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <Smartphone className="w-6 h-6 text-green-600" />
               </div>
+              </motion.div>
               <h3 className="text-xl font-semibold mb-3">
                 Flexible Scheduling
               </h3>
@@ -172,8 +231,9 @@ export default function LandingPage() {
               </p>
             </div>
           </div>
-        </div>
+       
       </section>
+       
 
       {/* Get Started Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
@@ -358,72 +418,210 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-gray-50 py-16 sm:py-24">
+      <section className="bg-gray-50 py-16 sm:py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">
+          <motion.h2
+            className="text-3xl sm:text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             What Our Students Say
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Testimonial 1 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                  />
-                ))}
+          </motion.h2>
+          <motion.div
+            className="overflow-x-hidden"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              className="flex gap-8"
+              animate={{ x: [0, -2500, 0] }}
+              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            >
+              {/* Testimonial 1 */}
+              <div className="bg-white p-8 rounded-xl shadow-sm flex-shrink-0 w-80 hover:shadow-md transition">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "Holookor helped me improve my math grades by 20 points in just
+                  3 months. The tutors are patient and knowledgeable!"
+                </p>
+                <div>
+                  <p className="font-semibold">Sarah J.</p>
+                  <p className="text-sm text-gray-500">High School Student</p>
+                </div>
               </div>
-              <p className="text-gray-600 mb-4">
-                "Holookor helped me improve my math grades by 20 points in just
-                3 months. The tutors are patient and knowledgeable!"
-              </p>
-              <div>
-                <p className="font-semibold">Sarah J.</p>
-                <p className="text-sm text-gray-500">High School Student</p>
-              </div>
-            </div>
 
-            {/* Testimonial 2 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                  />
-                ))}
+              {/* Testimonial 2 */}
+              <div className="bg-white p-8 rounded-xl shadow-sm flex-shrink-0 w-80 hover:shadow-md transition">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "As a parent, I love how transparent the platform is. I can see
+                  my son's progress and communicate with his tutor easily."
+                </p>
+                <div>
+                  <p className="font-semibold">Michael B.</p>
+                  <p className="text-sm text-gray-500">Parent</p>
+                </div>
               </div>
-              <p className="text-gray-600 mb-4">
-                "As a parent, I love how transparent the platform is. I can see
-                my son's progress and communicate with his tutor easily."
-              </p>
-              <div>
-                <p className="font-semibold">Michael B.</p>
-                <p className="text-sm text-gray-500">Parent</p>
-              </div>
-            </div>
 
-            {/* Testimonial 3 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                  />
-                ))}
+              {/* Testimonial 3 */}
+              <div className="bg-white p-8 rounded-xl shadow-sm flex-shrink-0 w-80 hover:shadow-md transition">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "Being a tutor on Holookor gave me the flexibility I needed
+                  while earning a great income. Highly recommended!"
+                </p>
+                <div>
+                  <p className="font-semibold">Emily K.</p>
+                  <p className="text-sm text-gray-500">Tutor</p>
+                </div>
               </div>
-              <p className="text-gray-600 mb-4">
-                "Being a tutor on Holookor gave me the flexibility I needed
-                while earning a great income. Highly recommended!"
-              </p>
-              <div>
-                <p className="font-semibold">Emily K.</p>
-                <p className="text-sm text-gray-500">Tutor</p>
+
+              {/* Testimonial 4 */}
+              <div className="bg-white p-8 rounded-xl shadow-sm flex-shrink-0 w-80 hover:shadow-md transition">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "I struggled with English until I found my tutor here. Now I'm
+                  getting straight A's! This platform changed my life!"
+                </p>
+                <div>
+                  <p className="font-semibold">James T.</p>
+                  <p className="text-sm text-gray-500">College Student</p>
+                </div>
               </div>
-            </div>
-          </div>
+
+              {/* Testimonial 5 */}
+              <div className="bg-white p-8 rounded-xl shadow-sm flex-shrink-0 w-80 hover:shadow-md transition">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "The variety of tutors available is amazing. I switched between
+                  three different tutors and found my perfect match!"
+                </p>
+                <div>
+                  <p className="font-semibold">Lisa M.</p>
+                  <p className="text-sm text-gray-500">Student</p>
+                </div>
+              </div>
+
+              {/* Testimonial 6 */}
+              <div className="bg-white p-8 rounded-xl shadow-sm flex-shrink-0 w-80 hover:shadow-md transition">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "Affordable, reliable, and effective. Holookor exceeded all my
+                  expectations. Worth every penny!"
+                </p>
+                <div>
+                  <p className="font-semibold">David R.</p>
+                  <p className="text-sm text-gray-500">Parent</p>
+                </div>
+              </div>
+
+              {/* Testimonial 7 */}
+              <div className="bg-white p-8 rounded-xl shadow-sm flex-shrink-0 w-80 hover:shadow-md transition">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "The platform is so easy to use. Booking sessions is seamless
+                  and the sessions are always professional!"
+                </p>
+                <div>
+                  <p className="font-semibold">Anna S.</p>
+                  <p className="text-sm text-gray-500">Student</p>
+                </div>
+              </div>
+
+              {/* Testimonial 8 */}
+              <div className="bg-white p-8 rounded-xl shadow-sm flex-shrink-0 w-80 hover:shadow-md transition">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "I've been tutoring for 10 years and Holookor is the best
+                  platform I've worked with. Truly amazing!"
+                </p>
+                <div>
+                  <p className="font-semibold">Robert C.</p>
+                  <p className="text-sm text-gray-500">Tutor</p>
+                </div>
+              </div>
+
+              {/* Repeat testimonials for continuous scroll */}
+              <div className="bg-white p-8 rounded-xl shadow-sm flex-shrink-0 w-80 hover:shadow-md transition">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "Holookor helped me improve my math grades by 20 points in just
+                  3 months. The tutors are patient and knowledgeable!"
+                </p>
+                <div>
+                  <p className="font-semibold">Sarah J.</p>
+                  <p className="text-sm text-gray-500">High School Student</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -432,11 +630,23 @@ export default function LandingPage() {
         id="faq"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24"
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">
+        <motion.h2
+          className="text-3xl sm:text-4xl font-bold text-center mb-16"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           Frequently Asked Questions
-        </h2>
+        </motion.h2>
         <div className="space-y-4 max-w-3xl mx-auto">
-          <details className="border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-green-600 transition group">
+          <motion.details
+            className="border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-green-600 transition group"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0 }}
+            viewport={{ once: true }}
+          >
             <summary className="font-semibold flex items-center justify-between">
               What age groups do you tutor?
               <span className="group-open:rotate-180 transition">
@@ -447,9 +657,15 @@ export default function LandingPage() {
               We tutor students from elementary school through college. Our
               tutors have expertise across various subjects and age groups.
             </p>
-          </details>
+          </motion.details>
 
-          <details className="border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-green-600 transition group">
+          <motion.details
+            className="border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-green-600 transition group"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
             <summary className="font-semibold flex items-center justify-between">
               How do I book my first session?
               <span className="group-open:rotate-180 transition">
@@ -460,9 +676,15 @@ export default function LandingPage() {
               Simply sign up, browse available tutors, and book a session at
               your preferred time. You can start learning within 24 hours.
             </p>
-          </details>
+          </motion.details>
 
-          <details className="border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-green-600 transition group">
+          <motion.details
+            className="border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-green-600 transition group"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <summary className="font-semibold flex items-center justify-between">
               What if I'm not satisfied with a session?
               <span className="group-open:rotate-180 transition">
@@ -473,9 +695,15 @@ export default function LandingPage() {
               We offer a 100% satisfaction guarantee. If you're not happy, we'll
               help match you with a different tutor at no extra cost.
             </p>
-          </details>
+          </motion.details>
 
-          <details className="border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-green-600 transition group">
+          <motion.details
+            className="border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-green-600 transition group"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
             <summary className="font-semibold flex items-center justify-between">
               Do you offer group sessions?
               <span className="group-open:rotate-180 transition">
@@ -486,27 +714,52 @@ export default function LandingPage() {
               Yes! We offer both one-on-one and small group sessions. Group
               rates are available for 2-4 students learning together.
             </p>
-          </details>
+          </motion.details>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-green-600 to-green-700 py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+        <motion.div
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            className="text-3xl sm:text-4xl font-bold mb-6"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
             Ready to Transform Your Learning?
-          </h2>
-          <p className="text-lg opacity-90 mb-8">
+          </motion.h2>
+          <motion.p
+            className="text-lg opacity-90 mb-8"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             Join thousands of students achieving their academic goals with
             Holookor.
-          </p>
-          <Link
-            href="/auth/signup"
-            className="inline-block px-8 py-3 bg-white text-green-600 rounded-lg hover:bg-gray-100 transition font-medium"
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
           >
-            Get Started Today
-          </Link>
-        </div>
+            <Link
+              href="/auth/signup"
+              className="inline-block px-8 py-3 bg-white text-green-600 rounded-lg hover:bg-gray-100 transition font-medium"
+            >
+              Get Started Today
+            </Link>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Contact Section */}

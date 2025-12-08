@@ -47,7 +47,7 @@ export default function AccountForm({ onSubmit, isLoading = false, onBack }) {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-white shadow-md">
       {/* Back Button */}
       {onBack && (
         <button
