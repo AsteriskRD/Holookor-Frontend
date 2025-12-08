@@ -1,12 +1,21 @@
+
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Dashboard from '@/components/StudentDashboard';
 import { mockStore, mockQuery } from '@/data/dashboardMockData';
 
-/**
- * Home page - Dashboard
- * TODO: API Integration - Replace mock data with server-side data fetching or client-side hooks
- */
 export default function DashboardPage() {
-  // Combine all mock data for the dashboard
+  const router = useRouter();
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (!isLoggedIn) {
+      router.push("/login"); // redirect to login if not logged in
+    }
+  }, []);
+
   const dashboardData = {
     user: mockStore.user,
     notifications: mockStore.notifications,
@@ -17,8 +26,10 @@ export default function DashboardPage() {
     aiRecommendations: mockQuery.aiRecommendations,
     dailyStreak: mockQuery.dailyStreak,
   };
-  
-  return <div className='bg-[#ffffff]'>
-    <Dashboard data={dashboardData} />
-  </div>
+
+  return (
+    <div className='bg-[#ffffff]'>
+      <Dashboard data={dashboardData} />
+    </div>
+  );
 }
